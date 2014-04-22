@@ -1,4 +1,7 @@
 Mysecurity::Application.routes.draw do
+ 
+  get "cursos/cursos_disponibles"
+
   resources :cursos
 
   resources :personas

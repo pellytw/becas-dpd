@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Nombre</th>
     <th>Institucion oferente</th>
     <th>Tel contacto</th>
     <th>Calle</th>
@@ -27,6 +28,7 @@
 
 <% @cursos.each do |curso| %>
   <tr>
+    <td><%= curso.nombre %></td>
     <td><%= curso.institucion_oferente %></td>
     <td><%= curso.tel_contacto %></td>
     <td><%= curso.calle %></td>

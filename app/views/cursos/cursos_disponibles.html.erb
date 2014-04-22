@@ -1,0 +1,45 @@
+<form class="form-horizontal">
+
+  <div class="row">
+    <h4>Cursos Disponibles para inscripción</h4>
+  </div>
+
+  <% @cantidad = 0 %>
+  <% cursos_disponibles = Array.new %>
+  <% cursos_disponibles = Curso.where(:disponible => true) %>
+
+  <% cursos_disponibles.each do |cd| %>
+
+    <% @cantidad = @cantidad + 1 %>
+
+    <% if (@cantidad % 2) != 0 then %>
+
+      <div class="row">
+        <div class="span6">
+          <div class="control-group success">
+            <label class="control-label"><strong><%= cd.nombre %></strong></label> 
+              <div class="controls">       
+                <%= cd.institucion_oferente %></br>
+                <%= cd.institucion_oferente %></br>
+                <%= cd.institucion_oferente %></br>
+              </div>       
+          </div>
+        </div>
+        <% if cursos_disponibles[@cantidad] then %>
+          <div class="span6">
+            <div class="control-group success">
+              <label class="control-label"><strong><%= cursos_disponibles[@cantidad].nombre %></strong></label> 
+                <div class="controls">       
+                  <%= cursos_disponibles[@cantidad].institucion_oferente %>
+                </div>       
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+    <% end %>
+
+  <% end %>
+
+
+</form>

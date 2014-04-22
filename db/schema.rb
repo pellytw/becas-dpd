@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140422131922) do
+ActiveRecord::Schema.define(:version => 20140422133329) do
 
   create_table "cursos", :force => true do |t|
     t.string   "institucion_oferente"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20140422131922) do
     t.boolean  "disponible"
     t.integer  "cupo_real"
     t.integer  "cupo_inscripcion"
+    t.string   "nombre"
   end
 
   create_table "escuelas", :force => true do |t|
