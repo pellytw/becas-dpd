@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  institucion_oferente: MyString
+  tel_contacto: MyString
+  calle: MyString
+  nro: 1
+  piso: MyString
+  depto: MyString
+  email: MyString
+  resenia: MyText
+  destinatarios: MyText
+  carga_horaria_presencial: MyString
+  carga_horaria_no_presencial: MyString
+  nro_expediente: MyString
+  localidad_id: 1
+  fechas_y_horarios: MyText
+  capacitadores: MyText
+
+two:
+  institucion_oferente: MyString
+  tel_contacto: MyString
+  calle: MyString
+  nro: 1
+  piso: MyString
+  depto: MyString
+  email: MyString
+  resenia: MyText
+  destinatarios: MyText
+  carga_horaria_presencial: MyString
+  carga_horaria_no_presencial: MyString
+  nro_expediente: MyString
+  localidad_id: 1
+  fechas_y_horarios: MyText
+  capacitadores: MyText

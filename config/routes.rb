@@ -1,4 +1,20 @@
 Mysecurity::Application.routes.draw do
+  resources :cursos
+
+  resources :personas
+
+  resources :escuelas
+
+  resources :localidads
+
+  resources :regions
+
+  resources :tipo_documentos
+
+  resources :situacion_revista
+
+  resources :titulos
+
   resources :role_permissions
 
     devise_for :users, :path => 'user'

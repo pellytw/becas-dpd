@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Apellidos y nombres:</b>
+  <%= @persona.apellidos_y_nombres %>
+</p>
+
+<p>
+  <b>Tipo documento:</b>
+  <%= @persona.tipo_documento_id %>
+</p>
+
+<p>
+  <b>Fecha nacimiento:</b>
+  <%= @persona.fecha_nacimiento %>
+</p>
+
+<p>
+  <b>Situacion revista:</b>
+  <%= @persona.situacion_revista_id %>
+</p>
+
+<p>
+  <b>Titulo:</b>
+  <%= @persona.titulo_id %>
+</p>
+
+<p>
+  <b>Nombre titulo:</b>
+  <%= @persona.nombre_titulo %>
+</p>
+
+<p>
+  <b>Escuela:</b>
+  <%= @persona.escuela_id %>
+</p>
+
+<p>
+  <b>Espacio curricular:</b>
+  <%= @persona.espacio_curricular %>
+</p>
+
+<p>
+  <b>Fecha alta espacio curr:</b>
+  <%= @persona.fecha_alta_espacio_curr %>
+</p>
+
+<p>
+  <b>Localidad:</b>
+  <%= @persona.localidad_id %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @persona.email %>
+</p>
+
+<p>
+  <b>Tel particular:</b>
+  <%= @persona.tel_particular %>
+</p>
+
+<p>
+  <b>Tel laboral:</b>
+  <%= @persona.tel_laboral %>
+</p>
+
+
+<%= link_to 'Edit', edit_persona_path(@persona) %> |
+<%= link_to 'Back', personas_path %>

@@ -11,7 +11,70 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140422121326) do
+ActiveRecord::Schema.define(:version => 20140422131922) do
+
+  create_table "cursos", :force => true do |t|
+    t.string   "institucion_oferente"
+    t.string   "tel_contacto"
+    t.string   "calle"
+    t.integer  "nro"
+    t.string   "piso"
+    t.string   "depto"
+    t.string   "email"
+    t.text     "resenia"
+    t.text     "destinatarios"
+    t.string   "carga_horaria_presencial"
+    t.string   "carga_horaria_no_presencial"
+    t.string   "nro_expediente"
+    t.integer  "localidad_id"
+    t.text     "fechas_y_horarios"
+    t.text     "capacitadores"
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.boolean  "disponible"
+    t.integer  "cupo_real"
+    t.integer  "cupo_inscripcion"
+  end
+
+  create_table "escuelas", :force => true do |t|
+    t.string   "nombre"
+    t.integer  "nro"
+    t.string   "localidad"
+    t.string   "region"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "localidads", :force => true do |t|
+    t.string   "nombre"
+    t.integer  "region_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "personas", :force => true do |t|
+    t.string   "apellidos_y_nombres"
+    t.integer  "tipo_documento_id"
+    t.date     "fecha_nacimiento"
+    t.integer  "situacion_revista_id"
+    t.integer  "titulo_id"
+    t.string   "nombre_titulo"
+    t.integer  "escuela_id"
+    t.string   "espacio_curricular"
+    t.date     "fecha_alta_espacio_curr"
+    t.integer  "localidad_id"
+    t.string   "email"
+    t.string   "tel_particular"
+    t.string   "tel_laboral"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
+
+  create_table "regions", :force => true do |t|
+    t.string   "nombre"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "role_permissions", :force => true do |t|
     t.integer  "role_id"
@@ -32,6 +95,24 @@ ActiveRecord::Schema.define(:version => 20140422121326) do
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "situacion_revista", :force => true do |t|
+    t.string   "nombre"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "tipo_documentos", :force => true do |t|
+    t.string   "nombre"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "titulos", :force => true do |t|
+    t.string   "nombre"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "user_roles", :force => true do |t|

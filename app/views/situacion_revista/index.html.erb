@@ -1,0 +1,23 @@
+<h1>Listing situacion_revista</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @situacion_revista.each do |situacion_revistum| %>
+  <tr>
+    <td><%= situacion_revistum.nombre %></td>
+    <td><%= link_to 'Show', situacion_revistum %></td>
+    <td><%= link_to 'Edit', edit_situacion_revistum_path(situacion_revistum) %></td>
+    <td><%= link_to 'Destroy', situacion_revistum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Situacion revistum', new_situacion_revistum_path %>

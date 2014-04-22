@@ -1,0 +1,80 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Institucion oferente:</b>
+  <%= @curso.institucion_oferente %>
+</p>
+
+<p>
+  <b>Tel contacto:</b>
+  <%= @curso.tel_contacto %>
+</p>
+
+<p>
+  <b>Calle:</b>
+  <%= @curso.calle %>
+</p>
+
+<p>
+  <b>Nro:</b>
+  <%= @curso.nro %>
+</p>
+
+<p>
+  <b>Piso:</b>
+  <%= @curso.piso %>
+</p>
+
+<p>
+  <b>Depto:</b>
+  <%= @curso.depto %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @curso.email %>
+</p>
+
+<p>
+  <b>Resenia:</b>
+  <%= @curso.resenia %>
+</p>
+
+<p>
+  <b>Destinatarios:</b>
+  <%= @curso.destinatarios %>
+</p>
+
+<p>
+  <b>Carga horaria presencial:</b>
+  <%= @curso.carga_horaria_presencial %>
+</p>
+
+<p>
+  <b>Carga horaria no presencial:</b>
+  <%= @curso.carga_horaria_no_presencial %>
+</p>
+
+<p>
+  <b>Nro expediente:</b>
+  <%= @curso.nro_expediente %>
+</p>
+
+<p>
+  <b>Localidad:</b>
+  <%= @curso.localidad_id %>
+</p>
+
+<p>
+  <b>Fechas y horarios:</b>
+  <%= @curso.fechas_y_horarios %>
+</p>
+
+<p>
+  <b>Capacitadores:</b>
+  <%= @curso.capacitadores %>
+</p>
+
+
+<%= link_to 'Edit', edit_curso_path(@curso) %> |
+<%= link_to 'Back', cursos_path %>

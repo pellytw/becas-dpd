@@ -1,0 +1,15 @@
+rails g scaffold Titulo nombre:string
+
+rails g scaffold SituacionRevista nombre:string
+
+rails g scaffold TipoDocumento nombre:string
+
+rails g scaffold Region nombre:string
+
+rails g scaffold Localidad nombre:string region_id:integer
+
+rails g scaffold Escuela nombre:string nro:integer localidad:string region:string
+
+rails g scaffold Persona apellidos_y_nombres:string tipo_documento_id:integer fecha_nacimiento:date situacion_revista_id:integer titulo_id:integer nombre_titulo:string escuela_id:integer espacio_curricular:string fecha_alta_espacio_curr:date localidad_id:integer email:string tel_particular:string tel_laboral:string
+
+rails g scaffold Curso institucion_oferente:string tel_contacto:string calle:string nro:integer piso:string depto:string email:string resenia:text destinatarios:text carga_horaria_presencial:string carga_horaria_no_presencial:string nro_expediente:string localidad_id:integer fechas_y_horarios:text capacitadores:text

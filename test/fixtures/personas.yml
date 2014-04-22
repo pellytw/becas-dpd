@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  apellidos_y_nombres: MyString
+  tipo_documento_id: 1
+  fecha_nacimiento: 2014-04-22
+  situacion_revista_id: 1
+  titulo_id: 1
+  nombre_titulo: MyString
+  escuela_id: 1
+  espacio_curricular: MyString
+  fecha_alta_espacio_curr: 2014-04-22
+  localidad_id: 1
+  email: MyString
+  tel_particular: MyString
+  tel_laboral: MyString
+
+two:
+  apellidos_y_nombres: MyString
+  tipo_documento_id: 1
+  fecha_nacimiento: 2014-04-22
+  situacion_revista_id: 1
+  titulo_id: 1
+  nombre_titulo: MyString
+  escuela_id: 1
+  espacio_curricular: MyString
+  fecha_alta_espacio_curr: 2014-04-22
+  localidad_id: 1
+  email: MyString
+  tel_particular: MyString
+  tel_laboral: MyString

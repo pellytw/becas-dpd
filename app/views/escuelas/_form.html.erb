@@ -1,0 +1,33 @@
+<%= form_for(@escuela) do |f| %>
+  <% if @escuela.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@escuela.errors.count, "error") %> prohibited this escuela from being saved:</h2>
+
+      <ul>
+      <% @escuela.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :nro %><br />
+    <%= f.number_field :nro %>
+  </div>
+  <div class="field">
+    <%= f.label :localidad %><br />
+    <%= f.text_field :localidad %>
+  </div>
+  <div class="field">
+    <%= f.label :region %><br />
+    <%= f.text_field :region %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

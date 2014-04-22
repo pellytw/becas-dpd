@@ -1,0 +1,89 @@
+<%= form_for(@curso) do |f| %>
+  <% if @curso.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@curso.errors.count, "error") %> prohibited this curso from being saved:</h2>
+
+      <ul>
+      <% @curso.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :institucion_oferente %>
+    <%= f.text_field :institucion_oferente %>
+  </div>
+  <div class="field">
+    <%= f.label :tel_contacto %>
+    <%= f.text_field :tel_contacto %>
+  </div>
+  <div class="field">
+    <%= f.label :calle %>
+    <%= f.text_field :calle %>
+  </div>
+  <div class="field">
+    <%= f.label :nro %>
+    <%= f.number_field :nro %>
+  </div>
+  <div class="field">
+    <%= f.label :piso %>
+    <%= f.text_field :piso %>
+  </div>
+  <div class="field">
+    <%= f.label :depto %>
+    <%= f.text_field :depto %>
+  </div>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :resenia %>
+    <%= f.text_area :resenia %>
+  </div>
+  <div class="field">
+    <%= f.label :destinatarios %>
+    <%= f.text_area :destinatarios %>
+  </div>
+  <div class="field">
+    <%= f.label :carga_horaria_presencial %>
+    <%= f.text_field :carga_horaria_presencial %>
+  </div>
+  <div class="field">
+    <%= f.label :carga_horaria_no_presencial %>
+    <%= f.text_field :carga_horaria_no_presencial %>
+  </div>
+  <div class="field">
+    <%= f.label :nro_expediente %>
+    <%= f.text_field :nro_expediente %>
+  </div>
+  <div class="field">
+    <%= f.label :localidad_id %>
+    <%= f.number_field :localidad_id %>
+  </div>
+  <div class="field">
+    <%= f.label :fechas_y_horarios %>
+    <%= f.text_area :fechas_y_horarios %>
+  </div>
+  <div class="field">
+    <%= f.label :capacitadores %>
+    <%= f.text_area :capacitadores %>
+  </div>
+  <div class="field">
+    <%= f.label :disponible %>
+    <%= f.check_box :disponible %>
+  </div>
+  <div class="field">
+    <%= f.label :cupo_inscripcion %>
+    <%= f.number_field :cupo_inscripcion %>
+  </div>
+  <div class="field">
+    <%= f.label :cupo_real %>
+    <%= f.number_field :cupo_real %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
