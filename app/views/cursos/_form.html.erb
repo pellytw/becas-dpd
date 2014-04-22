@@ -1,4 +1,4 @@
-<%= form_for(@curso) do |f| %>
+<%= form_for(@curso, :html => { :class => "form-horizontal"}) do |f| %>
   <% if @curso.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@curso.errors.count, "error") %> prohibited this curso from being saved:</h2>
@@ -11,83 +11,221 @@
     </div>
   <% end %>
 
- <div class="field">
-    <%= f.label :nombre %>
-    <%= f.text_field :nombre %>
+  <style type="text/css">
+    h4{
+      margin: 0px;
+      padding: 0px;
+    }
+  </style>
+
+  <div class="row">
+    <div class="span12" style="margin-top:20px;margin-bottom:20px;">
+      <span class="label label-info"><h4>Nuevo Curso</h4></span>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :institucion_oferente %>
-    <%= f.text_field :institucion_oferente %>
+  <hr/>
+
+  <div class="row">
+    <div class="span12">
+      <div class="control-group success">
+        <label class="control-label"><strong>Nombre del curso:</strong></label>
+        <div class="controls">
+          <%= f.text_field :nombre, :style => "width:100%;" %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :tel_contacto %>
-    <%= f.text_field :tel_contacto %>
+
+  <div class="row">
+    <div class="span6">
+      <div class="control-group success">
+        <label class="control-label"><strong>Institución Oferente:</strong></label>
+        <div class="controls">
+          <%= f.text_field :institucion_oferente %>
+        </div>
+      </div>
+    </div>
+    <div class="span6">
+      <div class="control-group success">
+        <label class="control-label"><strong>Teléfono de Contacto:</strong></label>
+        <div class="controls">
+          <%= f.text_field :tel_contacto %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :calle %>
-    <%= f.text_field :calle %>
+
+  <div class="row">
+    <div class="span6">
+      <div class="control-group success">
+        <label class="control-label"><strong>Calle:</strong></label>
+        <div class="controls">
+          <%= f.text_field :calle %>
+        </div>
+      </div>
+    </div>
+    <div class="span6">
+      <div class="control-group success">
+        <label class="control-label"><strong>Número:</strong></label>
+        <div class="controls">
+          <%= f.number_field :nro %>
+        </div>
+      </div>
+    </div>
+    <div class="span6">
+      <div class="control-group success">
+        <label class="control-label"><strong>Piso:</strong></label>
+        <div class="controls">
+          <%= f.text_field :piso %>
+        </div>
+      </div>
+    </div>
+    <div class="span6">
+      <div class="control-group success">
+        <label class="control-label"><strong>Dpto:</strong></label>
+        <div class="controls">
+          <%= f.text_field :depto %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :nro %>
-    <%= f.number_field :nro %>
+
+    <div class="row">
+    <div class="span12">
+      <div class="control-group success">
+        <label class="control-label"><strong>Email:</strong></label>
+        <div class="controls">
+          <%= f.text_field :email, :style => "width:100%;" %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :piso %>
-    <%= f.text_field :piso %>
+
+    <div class="row">
+    <div class="span12">
+      <div class="control-group success">
+        <label class="control-label"><strong>Reseña:</strong></label>
+        <div class="controls">
+          <%= f.text_area :resenia, :rows => "3", :style => "width:100%;" %>
+        </div>
+      </div>
+    </div>
+    </div>
+
+ <div class="row">
+    <div class="span12">
+      <div class="control-group success">
+        <label class="control-label"><strong>Destinatarios:</strong></label>
+        <div class="controls">
+          <%= f.text_area :destinatarios, :rows => "3", :style => "width:100%;" %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :depto %>
-    <%= f.text_field :depto %>
+
+  <div class="row">
+    <div class="span6">
+      <div class="control-group success">
+        <label class="control-label"><strong>Carga Horaria Presencial:</strong></label>
+        <div class="controls">
+          <%= f.text_field :carga_horaria_presencial %>
+        </div>
+      </div>
+    </div>
+    <div class="span6">
+      <div class="control-group success">
+        <label class="control-label"><strong>Carga Horaria No Presencial:</strong></label>
+        <div class="controls">
+          <%= f.text_field :carga_horaria_no_presencial %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+
+  <div class="row">
+    <div class="span6">
+      <div class="control-group success">
+        <label class="control-label"><strong>Número de Expediente:</strong></label>
+        <div class="controls">
+          <%= f.text_field :nro_expediente %>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="row">
+    <div class="span6">
+      <div class="control-group success">
+        <label class="control-label"><strong>Lugar Geográfico:</strong></label>
+        <div class="controls">
+          <%= f.collection_select(:localidad_id, Localidad.all, :id, :nombre) %>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+    <div class="row">
+    <div class="span12">
+      <div class="control-group success">
+        <label class="control-label"><strong>Fechas y Horarios:</strong></label>
+        <div class="controls">
+          <%= f.text_area :fechas_y_horarios,:rows => "3", :style => "width:100%;" %>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="row">
+    <div class="span12">
+      <div class="control-group success">
+        <label class="control-label"><strong>Capacitadores:</strong></label>
+        <div class="controls">
+          <%= f.text_area :capacitadores, :rows => "3", :style => "width:100%;" %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :resenia %>
-    <%= f.text_area :resenia %>
-  </div>
-  <div class="field">
-    <%= f.label :destinatarios %>
-    <%= f.text_area :destinatarios %>
-  </div>
-  <div class="field">
-    <%= f.label :carga_horaria_presencial %>
-    <%= f.text_field :carga_horaria_presencial %>
-  </div>
-  <div class="field">
-    <%= f.label :carga_horaria_no_presencial %>
-    <%= f.text_field :carga_horaria_no_presencial %>
-  </div>
-  <div class="field">
-    <%= f.label :nro_expediente %>
-    <%= f.text_field :nro_expediente %>
-  </div>
-  <div class="field">
-    <%= f.label :localidad_id %>
-    <%= f.number_field :localidad_id %>
-  </div>
-  <div class="field">
-    <%= f.label :fechas_y_horarios %>
-    <%= f.text_area :fechas_y_horarios %>
-  </div>
-  <div class="field">
-    <%= f.label :capacitadores %>
-    <%= f.text_area :capacitadores %>
-  </div>
-  <div class="field">
-    <%= f.label :disponible %>
-    <%= f.check_box :disponible %>
-  </div>
-  <div class="field">
-    <%= f.label :cupo_inscripcion %>
-    <%= f.number_field :cupo_inscripcion %>
-  </div>
-  <div class="field">
-    <%= f.label :cupo_real %>
-    <%= f.number_field :cupo_real %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+
+
+  <div class="row">
+    <div class="span6">
+      <div class="control-group success">
+        <label class="control-label"><strong>Marque si se encuentra Disponible</strong></label>
+        <div class="controls">
+          <%= f.check_box :disponible%>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+
+
+  <div class="row">
+    <div class="span6">
+      <div class="control-group success">
+        <label class="control-label"><strong>Cantidad de Cupos para inscripción:</strong></label>
+        <div class="controls">
+          <%= f.number_field :cupo_inscripcion  %>
+        </div>
+      </div>
+    </div>
+    <div class="span6">
+      <div class="control-group success">
+        <label class="control-label"><strong>Cantidad de Cupos Real del Curso:</strong></label>
+        <div class="controls">
+          <%= f.number_field :cupo_real %>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+  <div class="actions" align="center">
+    <%= f.submit :value => "Enviar Formulario", :class => "btn btn-primary" %>
   </div>
 <% end %>
+
+

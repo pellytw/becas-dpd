@@ -5,4 +5,6 @@
  *= require_self
  *= require bootstrap_and_overrides
  *= require tables
+ *= require jquery-ui-timepicker-addon
+ *= require jquery-ui/ui-lightness
 */

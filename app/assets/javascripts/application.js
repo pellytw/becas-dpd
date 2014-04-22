@@ -8,3 +8,5 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require allPages
+//= require jquery-ui
+//= require jquery-ui-timepicker-addon.js
