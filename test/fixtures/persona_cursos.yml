@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  persona_id: 1
+  curso_id: 1
+  fecha: 2014-04-23 10:46:07
+
+two:
+  persona_id: 1
+  curso_id: 1
+  fecha: 2014-04-23 10:46:07

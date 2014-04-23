@@ -184,9 +184,14 @@
     </script>
 
 <% end %>
+
+<input type="text" name="curso" placeholder="ingrese código de reclamo" value="<%=@curso.id%>">
+
+
   <div class="actions" align="center">
-    <%= f.submit :value => "Enviar Formulario", :class => "btn btn-primary" %>
+    <%= f.submit :value => "Enviar Formulario", :class => "btn btn-primary"%>
   </div>
+  <!-- <button class="btn btn-success" onclick="location.href='<%=url_for :controller => "personas", :action => "create", :name => @curso.id %>'">Enviar Formulario</button> -->
 <% end %>
 
 <div class="actions" align="center">

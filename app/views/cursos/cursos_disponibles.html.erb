@@ -8,7 +8,6 @@
   </div>
 
 
-  <button type="button" class="btn btn-d">button</button>
   <% cursos_disponibles = Array.new %>
   <% cursos_disponibles = Curso.where(:disponible => true) %>
   <% cursos_disponibles.each_slice(3) do |slice| %>

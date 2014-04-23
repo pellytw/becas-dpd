@@ -1,6 +1,10 @@
 class PersonasController < ApplicationController
   # GET /personas
   # GET /personas.json
+
+  @curso
+
+
   def index
     @personas = Persona.all
 
@@ -24,6 +28,7 @@ class PersonasController < ApplicationController
   # GET /personas/new
   # GET /personas/new.json
   def new
+    @curso = Curso.find(params["idCurso"])
     @persona = Persona.new
 
     respond_to do |format|
@@ -40,10 +45,13 @@ class PersonasController < ApplicationController
   # POST /personas
   # POST /personas.json
   def create
-    @persona = Persona.new(params[:persona])
+    @persona = Persona.new(params[:persona])   
 
     respond_to do |format|
       if @persona.save
+        @curso = Curso.find(params["curso"])
+        @persona_curso = PersonaCurso.create(:persona_id => @persona.id, :curso_id => @curso.id)
+        @persona_curso.save
         format.html { redirect_to @persona, notice: 'Persona was successfully created.' }
         format.json { render json: @persona, status: :created, location: @persona }
       else

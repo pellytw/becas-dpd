@@ -1,1 +1,1 @@
-rvm --create use ruby-1.9.3-p286@becas > /dev/null
+rvm use ruby-1.9.3-p286@becas

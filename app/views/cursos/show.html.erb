@@ -1,80 +1,186 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Institucion oferente:</b>
-  <%= @curso.institucion_oferente %>
-</p>
+<style type="text/css">
+  .form-horizontal .control-label {
+      margin-left: -10px;
+  }
+  .form-horizontal .controls{
+      margin-right: 30px;
+  }
+  h4,h6{
+    margin: 0px;
+    padding: 0px;
+  }
+  .controls {
+    padding-top: 5px;
+  }
+  </style>
 
-<p>
-  <b>Tel contacto:</b>
-  <%= @curso.tel_contacto %>
-</p>
+<form class="form-horizontal" style="background: #E0F2F7">
 
-<p>
-  <b>Calle:</b>
-  <%= @curso.calle %>
-</p>
+  <div class="row">
+    <div class="span12" style="margin-top:20px;margin-bottom:20px;">
+      <span class="label label-info"><h4><%= @curso.nombre %></h4></span>
+    </div>
+  </div>
 
-<p>
-  <b>Nro:</b>
-  <%= @curso.nro %>
-</p>
+  <div class="row">
+    <div class="span12">
+      <div class="control-group success">
+        <label class="control-label"><strong>Institución oferente:</strong></label>
+        <div class="controls">
+          <%= @curso.institucion_oferente %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <b>Piso:</b>
-  <%= @curso.piso %>
-</p>
+  <div class="row">
+    <div class="span12">
+      <div class="control-group success">
+        <label class="control-label"><strong>Descripción:</strong></label>
+        <div class="controls">
+          <%= @curso.resenia %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <b>Depto:</b>
-  <%= @curso.depto %>
-</p>
+  <div class="row">
+    <div class="span12">
+      <div class="control-group success">
+        <label class="control-label"><strong>Fechas y horarios:</strong></label>
+        <div class="controls">
+          <%= @curso.fechas_y_horarios %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <b>Email:</b>
-  <%= @curso.email %>
-</p>
+  <div class="row">
+    <div class="span12">
+      <div class="control-group success">
+        <label class="control-label"><strong>Capacitadores:</strong></label>
+        <div class="controls">
+          <%= @curso.capacitadores %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <b>Resenia:</b>
-  <%= @curso.resenia %>
-</p>
+  <div class="row">
+    <div class="span12">
+      <div class="control-group success">
+        <label class="control-label"><strong>Destinatarios:</strong></label>
+        <div class="controls">
+          <%= @curso.destinatarios %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <b>Destinatarios:</b>
-  <%= @curso.destinatarios %>
-</p>
+  <div class="row">
+    <div class="span6">
+      <div class="control-group success">
+        <label class="control-label"><strong>Carga horaria presencial:</strong></label>
+        <div class="controls">
+          <%= @curso.carga_horaria_presencial %>
+        </div>
+      </div>
+    </div>
+    <div class="span6">
+      <div class="control-group success">
+        <label class="control-label"><strong>Carga horaria no presencial:</strong></label>
+        <div class="controls">
+           <%= @curso.carga_horaria_no_presencial %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <b>Carga horaria presencial:</b>
-  <%= @curso.carga_horaria_presencial %>
-</p>
+  <div class="row">
+    <div class="span6">
+      <div class="control-group success">
+        <label class="control-label"><strong>Teléfono de contacto:</strong></label>
+        <div class="controls">
+          <%= @curso.tel_contacto %>
+        </div>
+      </div>
+    </div>
+    <div class="span6">
+      <div class="control-group success">
+        <label class="control-label"><strong>Correo electrónico:</strong></label>
+        <div class="controls">
+           <%= @curso.email %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <b>Carga horaria no presencial:</b>
-  <%= @curso.carga_horaria_no_presencial %>
-</p>
+  <div class="row">
+    <div class="span3">
+      <div class="control-group success">
+        <label class="control-label"><strong>Calle:</strong></label>
+        <div class="controls">
+          <%= @curso.calle %>
+        </div>
+      </div>
+    </div>
+    <div class="span3">
+      <div class="control-group success">
+        <label class="control-label"><strong>Nro:</strong></label>
+        <div class="controls">
+           <%= @curso.nro %>
+        </div>
+      </div>
+    </div>
+    <div class="span3">
+      <div class="control-group success">
+        <label class="control-label"><strong>Piso:</strong></label>
+        <div class="controls">
+          <%= @curso.piso %>
+        </div>
+      </div>
+    </div>
+    <div class="span3">
+      <div class="control-group success">
+        <label class="control-label"><strong>Depto:</strong></label>
+        <div class="controls">
+           <%= @curso.depto %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <b>Nro expediente:</b>
-  <%= @curso.nro_expediente %>
-</p>
+  <div class="row">
+    <div class="span12">
+      <div class="control-group success">
+        <label class="control-label"><strong>Localidad:</strong></label>
+        <div class="controls">
+          <%= @curso.localidad_id %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <b>Localidad:</b>
-  <%= @curso.localidad_id %>
-</p>
+  <div class="row">
+    <div class="span12">
+      <div class="control-group success">
+        <label class="control-label"><strong>Número de expediente:</strong></label>
+        <div class="controls">
+          <%= @curso.nro_expediente %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <b>Fechas y horarios:</b>
-  <%= @curso.fechas_y_horarios %>
-</p>
+</form>
 
-<p>
-  <b>Capacitadores:</b>
-  <%= @curso.capacitadores %>
-</p>
+<!-- <button onclick="location.href='http://chubut.edu.ar'" class="btn btn-success">Finalizar</button> -->
 
+<button class="btn btn-success" onclick="location.href='<%=url_for :controller => "personas", :action => "new", :idCurso => @curso.id %>'">Inscribirse</button>
+
+<%= link_to 'Inscribirse', new_persona_path, :class => "btn btn-success" %>
 
 <%= link_to 'Edit', edit_curso_path(@curso) %> |
 <%= link_to 'Back', cursos_path %>
