@@ -1,45 +1,31 @@
+
 <form class="form-horizontal">
 
   <div class="row">
-    <h4>Cursos Disponibles para inscripción</h4>
+    <div class="span12">
+      <h4>Cursos Disponibles para inscripción</h4>
+    </div>
   </div>
 
-  <% @cantidad = 0 %>
+
+  <button type="button" class="btn btn-d">button</button>
   <% cursos_disponibles = Array.new %>
   <% cursos_disponibles = Curso.where(:disponible => true) %>
-
-  <% cursos_disponibles.each do |cd| %>
-
-    <% @cantidad = @cantidad + 1 %>
-
-    <% if (@cantidad % 2) != 0 then %>
-
-      <div class="row">
-        <div class="span6">
-          <div class="control-group success">
-            <label class="control-label"><strong><%= cd.nombre %></strong></label> 
-              <div class="controls">       
-                <%= cd.institucion_oferente %></br>
-                <%= cd.institucion_oferente %></br>
-                <%= cd.institucion_oferente %></br>
-              </div>       
-          </div>
+  <% cursos_disponibles.each_slice(3) do |slice| %>
+    <div class="row">
+      <% slice.each do |cd| %>
+        <div class="span3 pagination-centered" style="padding-right: 100px">
+          <%= image_tag("curso.png", :alt => "problemas con la foto", :class => "img-circle", :style => "width: 140px; height: 140px;") %>
+          <h2> <%= cd.nombre %> </h2>
+          <p align="justify"> <b>reseña:</b> <%= cd.resenia %> </p>
+          <p align="justify"> <b>cupo:</b> <%= cd.cupo_real %> </p>
+          <p align="justify"> <b>destinatarios:</b> <%= cd.destinatarios %> </p>
+          <p align="justify"> <b>fechas y horarios:</b> <%= cd.fechas_y_horarios %> </p>
+          <p><%= link_to 'Ver detalles >>', cd, :class => "btn btn-success" %></p>
         </div>
-        <% if cursos_disponibles[@cantidad] then %>
-          <div class="span6">
-            <div class="control-group success">
-              <label class="control-label"><strong><%= cursos_disponibles[@cantidad].nombre %></strong></label> 
-                <div class="controls">       
-                  <%= cursos_disponibles[@cantidad].institucion_oferente %>
-                </div>       
-            </div>
-          </div>
-        <% end %>
-      </div>
-
-    <% end %>
-
+      <% end %>
+    </div>
+    <hr/>
   <% end %>
-
 
 </form>
