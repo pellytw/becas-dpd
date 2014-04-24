@@ -19,6 +19,19 @@
   </style>
 
   <div class="row">
+    <div class="span12">
+      <div class="control-group success">
+        <label class="control-label"><strong>Ingrese su Número de documento:</strong></label>
+        <div class="controls">
+          <%= f.text_field :nro_documento, :id => "nro_doc" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button id="btn-nro-doc" type="button" class="btn btn-default">button</button>
+
+  <div class="row">
     <div class="span12" style="margin-top:20px;margin-bottom:20px;">
       <span class="label label-info"><h4>Datos personales</h4></span>
     </div>
@@ -197,3 +210,18 @@
 <div class="actions" align="center">
   <button type="button" onclick="location.href='/cursos/cursos_disponibles'">Atrás</button>
 </div>
+
+
+<script type="text/javascript">
+  $( document ).ready(function() {
+    $("#btn-nro-doc").click(function(event) {
+       var a = $("nro_doc").value();
+       <%@a%> = a;
+      <% if Persona.where(:nro_documento => @a) then %>
+        alert("Existe");
+      <% else %>
+        alert("No existe");
+      <% end %>
+    });
+  });
+</script>
