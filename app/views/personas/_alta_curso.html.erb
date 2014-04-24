@@ -201,7 +201,9 @@
 
 <% end %>
 
-  <input type="text" name="curso" placeholder="ingrese código de reclamo" value="params['idCurso']">
+  <%debugger%>
+  <% @id_curso = params["idCurso"] %>
+  <input type="text" name="curso" value="<%=@id_curso%>" class="hidden">
 
 
   <div class="actions" align="center">
@@ -224,23 +226,29 @@
     $("#formulario").addClass('hidden');
 
     $("#btn-nro-doc").click(function() {
-       var nro_doc = $("#nro_doc").val();
+       var nro_doc = $("#nro_doc").val(); 
        $.ajax({
          url: '/personas/existe_persona?nro_doc=' + nro_doc,
          type: 'GET',
        })
        .done(function(data) {
-         $("#formulario").removeClass('hidden');
-         $("#persona_nro_documento").val(data.nro_documento).prop('disabled', true);;
-         $("#persona_apellidos_y_nombres").val(data.apellidos_y_nombres);
-         $("#persona_tipo_documento").val(data.tipo_documento);
-         $("#datepicker").val(data.fecha_nacimiento);
-         $("#datepicker2").val(data.fecha_alta_espacio_curr);
-         $("#persona_nombre_titulo").val(data.nombre_titulo);
-         $("#persona_espacio_curricular").val(data.espacio_curricular);
-         $("#persona_email").val(data.email);
-         $("#persona_tel_particular").val(data.tel_particular);
-         $("#persona_tel_laboral").val(data.tel_laboral);
+         if (data != "No se encontro"){
+           $("#formulario").removeClass('hidden');
+           $("#persona_nro_documento").val(data.nro_documento).prop('disabled', true);
+           $("#persona_apellidos_y_nombres").val(data.apellidos_y_nombres);
+           $("#persona_tipo_documento").val(data.tipo_documento);
+           $("#datepicker").val(data.fecha_nacimiento);
+           $("#datepicker2").val(data.fecha_alta_espacio_curr);
+           $("#persona_nombre_titulo").val(data.nombre_titulo);
+           $("#persona_espacio_curricular").val(data.espacio_curricular);
+           $("#persona_email").val(data.email);
+           $("#persona_tel_particular").val(data.tel_particular);
+           $("#persona_tel_laboral").val(data.tel_laboral);
+         }else{
+          $("#formulario").removeClass('hidden');
+          $("#persona_nro_documento").val(nro_doc).prop('disabled', true);
+         }
+        
        })
        .fail(function() {
          console.log("error");

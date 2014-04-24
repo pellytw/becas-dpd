@@ -1,0 +1,49 @@
+<%= form_for(@institucion_oferente) do |f| %>
+  <% if @institucion_oferente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@institucion_oferente.errors.count, "error") %> prohibited this institucion_oferente from being saved:</h2>
+
+      <ul>
+      <% @institucion_oferente.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono %><br />
+    <%= f.text_field :telefono %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :lugar_geografico_id %><br />
+    <%= f.number_field :lugar_geografico_id %>
+  </div>
+  <div class="field">
+    <%= f.label :calle %><br />
+    <%= f.text_field :calle %>
+  </div>
+  <div class="field">
+    <%= f.label :nro_calle %><br />
+    <%= f.number_field :nro_calle %>
+  </div>
+  <div class="field">
+    <%= f.label :piso %><br />
+    <%= f.text_field :piso %>
+  </div>
+  <div class="field">
+    <%= f.label :depto %><br />
+    <%= f.text_field :depto %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

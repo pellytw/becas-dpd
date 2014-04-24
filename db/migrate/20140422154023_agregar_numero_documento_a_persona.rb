@@ -1,5 +1,5 @@
 class AgregarNumeroDocumentoAPersona < ActiveRecord::Migration
-   def up
+  def up
   	add_column :personas, :nro_documento, :integer
   end
 

@@ -1,5 +1,7 @@
 Mysecurity::Application.routes.draw do
  
+  resources :institucion_oferentes
+
   get "cursos/cursos_disponibles"
 
   get "personas/existe_persona"
@@ -89,6 +91,6 @@ Mysecurity::Application.routes.draw do
   #
   #
 
-  root :to => "home#index"
+  root :to => "cursos#cursos_disponibles"
 
 end

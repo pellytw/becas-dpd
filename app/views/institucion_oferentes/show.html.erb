@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @institucion_oferente.nombre %>
+</p>
+
+<p>
+  <b>Telefono:</b>
+  <%= @institucion_oferente.telefono %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @institucion_oferente.email %>
+</p>
+
+<p>
+  <b>Lugar geografico:</b>
+  <%= @institucion_oferente.lugar_geografico_id %>
+</p>
+
+<p>
+  <b>Calle:</b>
+  <%= @institucion_oferente.calle %>
+</p>
+
+<p>
+  <b>Nro calle:</b>
+  <%= @institucion_oferente.nro_calle %>
+</p>
+
+<p>
+  <b>Piso:</b>
+  <%= @institucion_oferente.piso %>
+</p>
+
+<p>
+  <b>Depto:</b>
+  <%= @institucion_oferente.depto %>
+</p>
+
+
+<%= link_to 'Edit', edit_institucion_oferente_path(@institucion_oferente) %> |
+<%= link_to 'Back', institucion_oferentes_path %>

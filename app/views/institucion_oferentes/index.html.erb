@@ -1,0 +1,37 @@
+<h1>Listing institucion_oferentes</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Telefono</th>
+    <th>Email</th>
+    <th>Lugar geografico</th>
+    <th>Calle</th>
+    <th>Nro calle</th>
+    <th>Piso</th>
+    <th>Depto</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @institucion_oferentes.each do |institucion_oferente| %>
+  <tr>
+    <td><%= institucion_oferente.nombre %></td>
+    <td><%= institucion_oferente.telefono %></td>
+    <td><%= institucion_oferente.email %></td>
+    <td><%= institucion_oferente.lugar_geografico_id %></td>
+    <td><%= institucion_oferente.calle %></td>
+    <td><%= institucion_oferente.nro_calle %></td>
+    <td><%= institucion_oferente.piso %></td>
+    <td><%= institucion_oferente.depto %></td>
+    <td><%= link_to 'Show', institucion_oferente %></td>
+    <td><%= link_to 'Edit', edit_institucion_oferente_path(institucion_oferente) %></td>
+    <td><%= link_to 'Destroy', institucion_oferente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Institucion oferente', new_institucion_oferente_path %>
