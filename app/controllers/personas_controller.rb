@@ -28,7 +28,7 @@ class PersonasController < ApplicationController
   # GET /personas/new
   # GET /personas/new.json
   def new
-    @curso = Curso.find(params["idCurso"])
+    #@curso = Curso.find(params["idCurso"])
     @persona = Persona.new
 
     respond_to do |format|
@@ -40,6 +40,10 @@ class PersonasController < ApplicationController
   # GET /personas/1/edit
   def edit
     @persona = Persona.find(params[:id])
+    if params["idCurso"]
+      @curso = Curso.find(params["idCurso"])  
+    end
+      @curso = nil
   end
 
   # POST /personas
@@ -49,7 +53,7 @@ class PersonasController < ApplicationController
 
     respond_to do |format|
       if @persona.save
-        @curso = Curso.find(params["curso"])
+        @curso = Curso.find(params["id_curso"])
         @persona_curso = PersonaCurso.create(:persona_id => @persona.id, :curso_id => @curso.id)
         @persona_curso.save
         format.html { redirect_to @persona, notice: 'Persona was successfully created.' }
@@ -86,6 +90,16 @@ class PersonasController < ApplicationController
     respond_to do |format|
       format.html { redirect_to personas_url }
       format.json { head :no_content }
+    end
+  end
+
+  def existe_persona
+    @resultado = Persona.where(:nro_documento => params[:nro_doc]).first
+    if @resultado
+      #render :text => "Se encontro"
+      render json: @resultado
+    else
+      render :text => "No se encontro"
     end
   end
 end

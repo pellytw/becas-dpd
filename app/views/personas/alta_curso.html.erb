@@ -201,10 +201,8 @@
 
 <% end %>
 
-<% if params["idCurso"] != "" %>
-  <% @id_curso = params["idCurso"] %> 
-  <input type="text" name="id_curso" class="hidden" value="<%=@id_curso%>">
-<% end %>
+  <input type="text" name="curso" placeholder="ingrese código de reclamo" value="params['idCurso']">
+
 
   <div class="actions" align="center">
     <%= f.submit :value => "Enviar Formulario", :class => "btn btn-primary"%>

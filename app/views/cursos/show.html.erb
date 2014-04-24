@@ -177,10 +177,7 @@
 </form>
 
 <!-- <button onclick="location.href='http://chubut.edu.ar'" class="btn btn-success">Finalizar</button> -->
-
 <button class="btn btn-success" onclick="location.href='<%=url_for :controller => "personas", :action => "new", :idCurso => @curso.id %>'">Inscribirse</button>
-
-<%= link_to 'Inscribirse', new_persona_path, :class => "btn btn-success" %>
-
+<!-- <button class="btn btn-success" onclick="location.href='/personas/alta_curso?idCurso=<%=@curso.id%>'">Inscribirse</button> -->
 <%= link_to 'Edit', edit_curso_path(@curso) %> |
 <%= link_to 'Back', cursos_path %>

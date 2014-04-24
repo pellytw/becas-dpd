@@ -2,6 +2,10 @@ Mysecurity::Application.routes.draw do
  
   get "cursos/cursos_disponibles"
 
+  get "personas/existe_persona"
+
+  get "personas/alta_curso"
+
   resources :cursos
 
   resources :personas
