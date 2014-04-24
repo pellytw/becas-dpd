@@ -1,5 +1,7 @@
-<p>Welcome <%= @resource.email %>!</p>
+<% @title="Sistema de Cursos - Ministerio de Educación" %>
 
-<p>You can confirm your account email through the link below:</p>
+<p>Bienvenido <%= @resource.email %>!</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+<p>Puede confirmar su cuenta de email a traves del siguiente vinculo:</p>
+
+<p><%= link_to 'Confirmar mi cuenta', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
