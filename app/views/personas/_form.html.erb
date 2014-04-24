@@ -233,6 +233,14 @@
        .done(function(data) {
          $("#formulario").removeClass('hidden');
          $("#persona_apellidos_y_nombres").val(data.apellidos_y_nombres);
+         $("#persona_tipo_documento").val(data.tipo_documento);
+         $("#persona_fecha_nacimiento").val(data.fecha_nacimiento);nombre_titulo
+         $("#persona_nombre_titulo").val(data.nombre_titulo);
+         $("#persona_espacio_curricular").val(data.espacio_curricular);
+         $("#persona_fecha_alta_espacio_curr").val(data.fecha_alta_espacio_curr);
+         $("#persona_fecha_email").val(data.email);
+         $("#persona_tel_particular").val(data.tel_particular);
+         $("#persona_tel_laboral").val(data.tel_laboral);
        })
        .fail(function() {
          console.log("error");

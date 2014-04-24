@@ -53,6 +53,7 @@ class PersonasController < ApplicationController
 
     respond_to do |format|
       if @persona.save
+        debugger
         @curso = Curso.find(params["id_curso"])
         @persona_curso = PersonaCurso.create(:persona_id => @persona.id, :curso_id => @curso.id)
         @persona_curso.save
