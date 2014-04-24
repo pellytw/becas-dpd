@@ -19,24 +19,6 @@
   </style>
 
   <div class="row">
-    <div class="span5">
-      <div class="control-group success">
-        <label class="control-label"><strong>Ingrese su Número de documento:</strong></label>
-        <div class="controls">
-          <%= f.text_field :nro_documento, :id => "nro_doc" %>
-        </div>
-      </div>
-    </div>
-    <div class="span7">
-      <button id="btn-nro-doc" type="button" class="btn btn-success">Buscar</button>
-    </div>
-  </div>
-
-  
-
-
-  <div id="formulario">
-  <div class="row">
     <div class="span12" style="margin-top:20px;margin-bottom:20px;">
       <span class="label label-info"><h4>Datos personales</h4></span>
     </div>
@@ -201,54 +183,8 @@
 
 <% end %>
 
-<% if params["idCurso"] != "" %>
-  <% @id_curso = params["idCurso"] %> 
-  <input type="text" name="id_curso" class="hidden" value="<%=@id_curso%>">
-<% end %>
-
   <div class="actions" align="center">
-    <%= f.submit :value => "Enviar Formulario", :class => "btn btn-primary"%>
+    <%= f.submit :value => "Guardar", :class => "btn btn-primary"%>
   </div>
   
 <% end %>
-
-</div>
-
-<div class="actions" align="center">
-  <button type="button" onclick="location.href='/cursos/cursos_disponibles'">Atrás</button>
-</div>
-
-
-<script type="text/javascript">
-  $( document ).ready(function() {
-    $("#formulario").addClass('hidden');
-
-    $("#btn-nro-doc").click(function() {
-       var nro_doc = $("#nro_doc").val();
-       alert(nro_doc);
-       $.ajax({
-         url: '/personas/existe_persona?nro_doc=' + nro_doc,
-         type: 'GET',
-       })
-       .done(function(data) {
-         $("#formulario").removeClass('hidden');
-         $("#persona_apellidos_y_nombres").val(data.apellidos_y_nombres);
-         $("#persona_tipo_documento").val(data.tipo_documento);
-         $("#persona_fecha_nacimiento").val(data.fecha_nacimiento);nombre_titulo
-         $("#persona_nombre_titulo").val(data.nombre_titulo);
-         $("#persona_espacio_curricular").val(data.espacio_curricular);
-         $("#persona_fecha_alta_espacio_curr").val(data.fecha_alta_espacio_curr);
-         $("#persona_fecha_email").val(data.email);
-         $("#persona_tel_particular").val(data.tel_particular);
-         $("#persona_tel_laboral").val(data.tel_laboral);
-       })
-       .fail(function() {
-         console.log("error");
-       })
-       .always(function() {
-         console.log("complete");
-       });
-       
-    });
-  });
-</script>
