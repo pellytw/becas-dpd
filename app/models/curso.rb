@@ -4,7 +4,9 @@ class Curso < ActiveRecord::Base
 
   belongs_to :institucion_oferente
 
-  has_many :persona_curso
+  has_many :persona_curso, :dependent => :destroy
   has_many :persona, :through => :persona_curso
+
+  validates :cupo_inscripcion, :presence => true
 
 end
