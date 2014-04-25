@@ -18,12 +18,12 @@
     }
   </style>
 
-  <div class="row">
+  <div class="row" id="buscar_doc">
     <div class="span5">
       <div class="control-group success">
         <label class="control-label"><strong>Ingrese su Número de documento:</strong></label>
         <div class="controls">
-          <%= f.text_field :nro_documento, :id => "nro_doc" %>
+          <%= f.text_field :nro_documento, :id => "nro_doc", :onkeypress=>"return capturarEnter(event)" %>
         </div>
       </div>
     </div>
@@ -245,6 +245,7 @@
            $("#persona_email").val(data.email);
            $("#persona_tel_particular").val(data.tel_particular);
            $("#persona_tel_laboral").val(data.tel_laboral);
+           $("#buscar_doc").addClass('hidden');
          }else{
           $("#formulario").removeClass('hidden');
           $("#persona_nro_documento").val(nro_doc).prop('disabled', true);
@@ -260,4 +261,17 @@
        
     });
   });
+</script>
+
+<script type="text/javascript">
+  
+  function capturarEnter(e) {
+    if (e.keyCode == 13) {
+        var tb = document.getElementById("nro_doc");
+        $("#btn-nro-doc").click();
+        eval(tb.value);
+        return false;
+    }
+  }
+
 </script>
