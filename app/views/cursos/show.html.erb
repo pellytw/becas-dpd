@@ -103,7 +103,7 @@
       <div class="control-group success">
         <label class="control-label"><strong>Teléfono de contacto:</strong></label>
         <div class="controls">
-          <%= @curso.tel_contacto %>
+          <%= @curso.institucion_oferente.telefono %>
         </div>
       </div>
     </div>
@@ -111,7 +111,7 @@
       <div class="control-group success">
         <label class="control-label"><strong>Correo electrónico:</strong></label>
         <div class="controls">
-           <%= @curso.email %>
+           <%= @curso.institucion_oferente.email %>
         </div>
       </div>
     </div>
@@ -122,7 +122,7 @@
       <div class="control-group success">
         <label class="control-label"><strong>Calle:</strong></label>
         <div class="controls">
-          <%= @curso.calle %>
+          <%= @curso.institucion_oferente.calle %>
         </div>
       </div>
     </div>
@@ -130,7 +130,7 @@
       <div class="control-group success">
         <label class="control-label"><strong>Nro:</strong></label>
         <div class="controls">
-           <%= @curso.nro %>
+           <%= @curso.institucion_oferente.nro_calle %>
         </div>
       </div>
     </div>
@@ -138,7 +138,7 @@
       <div class="control-group success">
         <label class="control-label"><strong>Piso:</strong></label>
         <div class="controls">
-          <%= @curso.piso %>
+          <%= @curso.institucion_oferente.piso %>
         </div>
       </div>
     </div>
@@ -146,7 +146,7 @@
       <div class="control-group success">
         <label class="control-label"><strong>Depto:</strong></label>
         <div class="controls">
-           <%= @curso.depto %>
+           <%= @curso.institucion_oferente.depto %>
         </div>
       </div>
     </div>

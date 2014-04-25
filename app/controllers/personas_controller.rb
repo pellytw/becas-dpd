@@ -53,14 +53,15 @@ class PersonasController < ApplicationController
 
     respond_to do |format|
       if @persona.save
-        @curso = Curso.find(params["curso"])
+        @curso = Curso.find(params["id_curso"])
         @persona_curso = PersonaCurso.create(:persona_id => @persona.id, :curso_id => @curso.id)
         @persona_curso.save
         format.html { redirect_to @persona, notice: 'Persona was successfully created.' }
         format.json { render json: @persona, status: :created, location: @persona }
       else
-        format.html { render action: "new" }
-        format.json { render json: @persona.errors, status: :unprocessable_entity }
+        debugger
+        format.html { render action: "new", :params => params["id_curso"] }
+        format.json { render json: @persona.errors, status: :unprocessable_entity }        
       end
     end
   end

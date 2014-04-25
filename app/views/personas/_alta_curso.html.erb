@@ -201,13 +201,12 @@
 
 <% end %>
 
-  <%debugger%>
   <% @id_curso = params["idCurso"] %>
-  <input type="text" name="curso" value="<%=@id_curso%>" class="hidden">
+  <input type="text" name="id_curso" value="<%=@id_curso%>" class="hidden">
 
 
   <div class="actions" align="center">
-    <%= f.submit :value => "Enviar Formulario", :class => "btn btn-primary"%>
+    <%= f.submit :value => "Enviar Formulario", :class => "btn btn-primary", data: { confirm: '¿Confirma sus datos personales?' }%>
   </div>
   
 <% end %>
