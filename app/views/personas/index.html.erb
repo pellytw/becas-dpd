@@ -25,10 +25,10 @@
   <tr>
     <td><%= persona.apellidos_y_nombres %></td>
 
-<td> <% if persona.nombres_y_apellidos.length > 25 then %>
-          <a href="<%= url_for :controller => "personas", :action => "show", :id => persona.id %>"><%= persona.nombres_y_apellidos[0..25].html_safe + "..." %></a>
+<td> <% if persona.apellidos_y_nombres.length > 25 then %>
+          <a href="<%= url_for :controller => "personas", :action => "show", :id => persona.id %>"><%= persona.apellidos_y_nombres[0..25].html_safe + "..." %></a>
         <% else %>
-          <a href="<%= url_for :controller => "personas", :action => "show", :id => persona.id %>"><%= persona.nombres_y_apellidos.html_safe %></a>
+          <a href="<%= url_for :controller => "personas", :action => "show", :id => persona.id %>"><%= persona.apellidos_y_nombres.html_safe %></a>
         <% end %></td>
 
     <td><%= persona.tipo_documento_id %></td>
