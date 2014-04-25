@@ -49,20 +49,76 @@ class PersonasController < ApplicationController
   # POST /personas
   # POST /personas.json
   def create
-    @persona = Persona.new(params[:persona])   
+    #@persona = Persona.new(params[:persona])   
+    @curso = Curso.find(params["idCurso"])
+    @persona_aux = Persona.where(:nro_documento => params[:persona]["nro_documento"]).first
+    #si existe la persona
+    if @persona_aux != nil then
+      #si esa persona ya está en ese curso
+      if PersonaCurso.where(:persona_id => @persona_aux.id, :curso_id => params["idCurso"]).first == nil then 
+        #se puede inscribir (pero no sabemos si supero el limite)
+        #entonces chequeamos si ya está en dos cursos
+        if contador_curso(@persona_aux.id, params["idCurso"]) > 1 then
+          respond_to do |format|
+            format.html { redirect_to "/cursos/cursos_disponibles", alert: 'Usted ya supero el maximo de inscripciones disponibles.' }
+            format.json { head :no_content }
+          end
+        else
+          @persona = @persona_aux
 
-    respond_to do |format|
-      if @persona.save
-        @curso = Curso.find(params["curso"])
-        @persona_curso = PersonaCurso.create(:persona_id => @persona.id, :curso_id => @curso.id)
-        @persona_curso.save
-        format.html { redirect_to @persona, notice: 'Persona was successfully created.' }
-        format.json { render json: @persona, status: :created, location: @persona }
+          #vemos si el curso ya supero el cupo de inscriptos
+          if PersonaCurso.where(:curso_id => params["idCurso"]).count >= @curso.cupo_inscripcion then
+            respond_to do |format|
+              format.html { redirect_to "/cursos/cursos_disponibles", alert: 'Este curso ya alcanzo el limite de inscriptos.' }
+              format.json { head :no_content }
+            end
+          else
+            respond_to do |format|
+              if @persona.save
+                @persona_curso = PersonaCurso.create(:persona_id => @persona.id, :curso_id => @curso.id)
+                @persona_curso.save
+                format.html { redirect_to @persona, notice: 'Persona was successfully created.' }
+                format.json { render json: @persona, status: :created, location: @persona }
+              else          
+                format.html { render  "new" }
+                format.json { render json: @persona.errors, status: :unprocessable_entity }               
+              end
+            end
+          end
+        end
       else
-        format.html { render action: "new" }
-        format.json { render json: @persona.errors, status: :unprocessable_entity }
+        #no se puede inscribir
+        respond_to do |format|
+          format.html { redirect_to "/cursos/cursos_disponibles", alert: 'Usted ya esta inscripto en ese curso.' }
+          format.json { head :no_content }
+        end
+      end
+    #no existe la persona
+    else
+      #vemos si el curso ya supero el cupo de inscriptos
+      if PersonaCurso.where(:curso_id => params["idCurso"]).count >= @curso.cupo_inscripcion then
+        respond_to do |format|
+          format.html { redirect_to "/cursos/cursos_disponibles", alert: 'Este curso ya alcanzo el limite de inscriptos.' }
+          format.json { head :no_content }
+        end
+      else
+        @persona = Persona.new(params[:persona])   
+        @puede_inscribirse = true
+        respond_to do |format|
+          if @persona.save
+            @curso = Curso.find(params["idCurso"])
+            @persona_curso = PersonaCurso.create(:persona_id => @persona.id, :curso_id => @curso.id)
+            @persona_curso.save
+            format.html { redirect_to @persona, notice: 'Persona was successfully created.' }
+            format.json { render json: @persona, status: :created, location: @persona }
+          else
+            format.html { render  "new" }
+            format.json { render json: @persona.errors, status: :unprocessable_entity }             
+          end
+        end
       end
     end
+    
   end
 
   # PUT /personas/1
@@ -102,4 +158,18 @@ class PersonasController < ApplicationController
       render :text => "No se encontro"
     end
   end
+
+
+  def contador_curso(persona_id, curso_id)
+    @contador = 0
+    PersonaCurso.where(:persona_id => persona_id).each do |pc|
+      if Curso.find(pc.curso_id).disponible
+        @contador = @contador + 1
+      end
+    end
+    return @contador
+  end
+
+
+
 end

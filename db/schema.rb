@@ -11,15 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140424161227) do
+ActiveRecord::Schema.define(:version => 20140425113701) do
 
   create_table "cursos", :force => true do |t|
-    t.string   "institucion_oferente"
     t.string   "tel_contacto"
-    t.string   "calle"
-    t.integer  "nro"
-    t.string   "piso"
-    t.string   "depto"
     t.string   "email"
     t.text     "resenia"
     t.text     "destinatarios"

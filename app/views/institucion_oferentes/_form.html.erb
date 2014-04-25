@@ -1,7 +1,7 @@
-<%= form_for(@institucion_oferente) do |f| %>
+<%= form_for(@institucion_oferente, :html => { :class => "form-horizontal"}) do |f| %>
   <% if @institucion_oferente.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@institucion_oferente.errors.count, "error") %> prohibited this institucion_oferente from being saved:</h2>
+      <h2><%= pluralize(@institucion_oferente.errors.count, "error") %> prohibited this institucion oferente from being saved:</h2>
 
       <ul>
       <% @institucion_oferente.errors.full_messages.each do |msg| %>
@@ -11,39 +11,99 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nombre %><br />
-    <%= f.text_field :nombre %>
+  <style type="text/css">
+    h4{
+      margin: 0px;
+      padding: 0px;
+    }
+  </style>
+
+  <div class="row">
+    <div class="span12" style="margin-top:20px;margin-bottom:20px;">
+      <span class="label label-info"><h4>Nueva Institución Oferente</h4></span>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :telefono %><br />
-    <%= f.text_field :telefono %>
+  <hr/>
+
+  <div class="row">
+    <div class="span12">
+      <div class="control-group success">
+        <label class="control-label"><strong>Nombre:</strong></label>
+        <div class="controls">
+          <%= f.text_field :nombre, :style => "width:100%;" %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+
+  <div class="row">   
+    <div class="span6">
+      <div class="control-group success">
+        <label class="control-label"><strong>Teléfono de Contacto:</strong></label>
+        <div class="controls">
+          <%= f.text_field :telefono %>
+        </div>
+      </div>
+    </div>
+    <div class="span6">
+      <div class="control-group success">
+        <label class="control-label"><strong>Email:</strong></label>
+        <div class="controls">
+          <%= f.text_field :email, :style => "width:100%;" %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :lugar_geografico_id %><br />
-    <%= f.number_field :lugar_geografico_id %>
+
+  <div class="row">
+    <div class="span12">
+      <div class="control-group success">
+        <label class="control-label"><strong>Lugar Geofráfico:</strong></label>
+        <div class="controls">
+          <%= f.collection_select(:lugar_geografico_id, Localidad.all, :id, :nombre) %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :calle %><br />
-    <%= f.text_field :calle %>
+
+  <div class="row">
+    <div class="span6">
+      <div class="control-group success">
+        <label class="control-label"><strong>Calle:</strong></label>
+        <div class="controls">
+          <%= f.text_field :calle %>
+        </div>
+      </div>
+    </div>
+    <div class="span6">
+      <div class="control-group success">
+        <label class="control-label"><strong>Número:</strong></label>
+        <div class="controls">
+          <%= f.number_field :nro_calle %>
+        </div>
+      </div>
+    </div>
+    <div class="span6">
+      <div class="control-group success">
+        <label class="control-label"><strong>Piso:</strong></label>
+        <div class="controls">
+          <%= f.text_field :piso %>
+        </div>
+      </div>
+    </div>
+    <div class="span6">
+      <div class="control-group success">
+        <label class="control-label"><strong>Dpto:</strong></label>
+        <div class="controls">
+          <%= f.text_field :depto %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :nro_calle %><br />
-    <%= f.number_field :nro_calle %>
-  </div>
-  <div class="field">
-    <%= f.label :piso %><br />
-    <%= f.text_field :piso %>
-  </div>
-  <div class="field">
-    <%= f.label :depto %><br />
-    <%= f.text_field :depto %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+
+
+  <div class="actions" align="center">
+    <%= f.submit :value => "Guardar", :class => "btn btn-primary" %>
   </div>
 <% end %>

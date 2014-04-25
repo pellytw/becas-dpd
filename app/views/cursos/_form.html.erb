@@ -41,67 +41,22 @@
       <div class="control-group success">
         <label class="control-label"><strong>Institución Oferente:</strong></label>
         <div class="controls">
-          <%= f.text_field :institucion_oferente %>
+          <%= f.collection_select(:institucion_oferente_id, InstitucionOferente.all, :id, :nombre) %>
         </div>
       </div>
     </div>
     <div class="span6">
       <div class="control-group success">
-        <label class="control-label"><strong>Teléfono de Contacto:</strong></label>
+        <label class="control-label"><strong>Lugar Geográfico:</strong></label>
         <div class="controls">
-          <%= f.text_field :tel_contacto %>
+          <%= f.collection_select(:localidad_id, Localidad.all, :id, :nombre) %>
         </div>
       </div>
-    </div>
+    </div>   
   </div>
+
 
   <div class="row">
-    <div class="span6">
-      <div class="control-group success">
-        <label class="control-label"><strong>Calle:</strong></label>
-        <div class="controls">
-          <%= f.text_field :calle %>
-        </div>
-      </div>
-    </div>
-    <div class="span6">
-      <div class="control-group success">
-        <label class="control-label"><strong>Número:</strong></label>
-        <div class="controls">
-          <%= f.number_field :nro %>
-        </div>
-      </div>
-    </div>
-    <div class="span6">
-      <div class="control-group success">
-        <label class="control-label"><strong>Piso:</strong></label>
-        <div class="controls">
-          <%= f.text_field :piso %>
-        </div>
-      </div>
-    </div>
-    <div class="span6">
-      <div class="control-group success">
-        <label class="control-label"><strong>Dpto:</strong></label>
-        <div class="controls">
-          <%= f.text_field :depto %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-    <div class="row">
-    <div class="span12">
-      <div class="control-group success">
-        <label class="control-label"><strong>Email:</strong></label>
-        <div class="controls">
-          <%= f.text_field :email, :style => "width:100%;" %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-    <div class="row">
     <div class="span12">
       <div class="control-group success">
         <label class="control-label"><strong>Reseña:</strong></label>
@@ -151,21 +106,10 @@
         </div>
       </div>
     </div>
-    </div>
-
-    <div class="row">
-    <div class="span6">
-      <div class="control-group success">
-        <label class="control-label"><strong>Lugar Geográfico:</strong></label>
-        <div class="controls">
-          <%= f.collection_select(:localidad_id, Localidad.all, :id, :nombre) %>
-        </div>
-      </div>
-    </div>
-    </div>
+  </div>
 
 
-    <div class="row">
+  <div class="row">
     <div class="span12">
       <div class="control-group success">
         <label class="control-label"><strong>Fechas y Horarios:</strong></label>
@@ -174,9 +118,9 @@
         </div>
       </div>
     </div>
-    </div>
+  </div>
 
-    <div class="row">
+  <div class="row">
     <div class="span12">
       <div class="control-group success">
         <label class="control-label"><strong>Capacitadores:</strong></label>

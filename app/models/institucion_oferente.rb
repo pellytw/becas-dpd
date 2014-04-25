@@ -4,4 +4,8 @@ class InstitucionOferente < ActiveRecord::Base
   has_many :curso
   belongs_to :localidad
 
+  def to_s
+  	"#{ self.nombre }"
+  end
+
 end
