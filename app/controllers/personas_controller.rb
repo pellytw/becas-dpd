@@ -51,17 +51,39 @@ class PersonasController < ApplicationController
   def create
     @persona = Persona.new(params[:persona])   
 
-    respond_to do |format|
-      if @persona.save
-        @curso = Curso.find(params["id_curso"])
-        @persona_curso = PersonaCurso.create(:persona_id => @persona.id, :curso_id => @curso.id)
-        @persona_curso.save
-        format.html { redirect_to @persona, notice: 'Persona was successfully created.' }
-        format.json { render json: @persona, status: :created, location: @persona }
+    @persona_aux = Persona.where(:nro_documento => params[:persona]["nro_documento"]).first
+    #si existe la persona
+    if @persona_aux != nil then
+      #si esa persona ya está en ese curso
+      if PersonaCurso.where(:persona_id => @persona_aux.id, :curso_id => params["id_curso"]).first != nil then 
+        #se puede inscribir
+        @puede_inscribirse = true
       else
-        debugger
-        format.html { render action: "new", :params => params["id_curso"] }
-        format.json { render json: @persona.errors, status: :unprocessable_entity }        
+        #no se puede inscribir
+        @puede_inscribirse = false
+      end
+    #no existe la persona
+    else
+      @puede_inscribirse = true
+    end
+
+    respond_to do |format|
+      if @puede_inscribirse then 
+        if @persona.save
+          @curso = Curso.find(params["id_curso"])
+          @persona_curso = PersonaCurso.create(:persona_id => @persona.id, :curso_id => @curso.id)
+          @persona_curso.save
+          format.html { redirect_to @persona, notice: 'Persona was successfully created.' }
+          format.json { render json: @persona, status: :created, location: @persona }
+        else
+          #redirect_to '/personas/new?idCurso=' + params["id_curso"]          
+          format.html { redirect_to  personas_path + "/new?idCurso=" + params["id_curso"] }
+          format.json { render json: @persona.errors, status: :unprocessable_entity } 
+          #format.html { render action: "new", :params => params["id_curso"] }               
+        end
+      else
+        format.html { redirect_to "/cursos/cursos_disponibles", alert: 'Usted ya esta inscripto en ese curso.' }
+        format.json { head :no_content }
       end
     end
   end
