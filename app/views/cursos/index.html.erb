@@ -5,10 +5,9 @@
   <thead>
   <tr>
     <th>Nombre</th>
-    <th>Institucion oferente</th>
+    <th>Institución oferente</th>
     <th>Destinatarios</th>
-    <th>Nro expediente</th>
-    <th>Localidad</th>
+    <th>Nro. expediente</th>
     <th>Capacitadores</th>
     <th>Disponible</th>
     <th></th>
@@ -18,11 +17,28 @@
   <tr>
     <td><%= curso.nombre %></td>
     <td><%= curso.institucion_oferente %></td>
-    <td><%= curso.destinatarios %></td>
+    <td>
+      <% if curso.destinatarios.length > 25 then %>
+          <a href="<%= url_for :controller => "cursos", :action => "show", :id => curso.id %>"><%= curso.destinatarios[0..25].html_safe + "..." %></a>
+      <% else %>
+          <a href="<%= url_for :controller => "cursos", :action => "show", :id => curso.id %>"><%= curso.destinatarios.html_safe %></a>
+      <% end %>
+    </td>
     <td><%= curso.nro_expediente %></td>
-    <td><%= curso.localidad_id %></td>
-    <td><%= curso.capacitadores %></td>
-    <td><%= curso.disponible %></td>
+     <td>
+      <% if curso.capacitadores.length > 25 then %>
+          <a href="<%= url_for :controller => "cursos", :action => "show", :id => curso.id %>"><%= curso.capacitadores[0..25].html_safe + "..." %></a>
+      <% else %>
+          <a href="<%= url_for :controller => "cursos", :action => "show", :id => curso.id %>"><%= curso.capacitadores.html_safe %></a>
+      <% end %>
+    </td>
+    <td>
+      <% if curso.disponible == true then %>
+        Si
+      <% else %>
+        No
+      <% end %>
+    </td>
     <td><div class="btn-group">
         <a class="btn dropdown-toggle btn-primary" data-toggle="dropdown" href="#">
           Acciones
@@ -30,6 +46,7 @@
         </a>
         <ul class="dropdown-menu">
           <li><%= link_to 'Ver', curso %></li>
+          <li><%= link_to 'Ver Inscriptos', cursos_inscriptos_path, :idCurso => curso.id %></li>
           <li><%= link_to 'Editar', edit_curso_path(curso) %></li>
           <li><%= link_to 'Eliminar', curso, method: :delete, data: { confirm: 'Seguro desea eliminar?' } %></li>
           </li>

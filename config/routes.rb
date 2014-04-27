@@ -4,6 +4,8 @@ Mysecurity::Application.routes.draw do
 
   get "cursos/cursos_disponibles"
 
+  get "cursos/inscriptos"
+
   get "personas/existe_persona"
 
   get "personas/alta_curso"
