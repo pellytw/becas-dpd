@@ -46,7 +46,7 @@
         </a>
         <ul class="dropdown-menu">
           <li><%= link_to 'Ver', curso %></li>
-          <li><%= link_to 'Ver Inscriptos', cursos_inscriptos_path, :idCurso => curso.id %></li>
+          <li><%= link_to 'Ver Inscriptos', cursos_inscriptos_path(:idCurso => curso.id) %></li>
           <li><%= link_to 'Editar', edit_curso_path(curso) %></li>
           <li><%= link_to 'Eliminar', curso, method: :delete, data: { confirm: 'Seguro desea eliminar?' } %></li>
           </li>

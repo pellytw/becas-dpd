@@ -20,30 +20,52 @@
       <ul class="nav" role="navigation">
        	
        	<% if user_signed_in? then %>
+
+       	    <% if (current_user.role? :dpd) then %>
        		
-	    	<li class="dropdown">
-	          <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Reclamos <b class="caret"></b></a>
-	          <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
-	           	<li><%=link_to "Reclamos",:tabindex => "-1"%></li>
-	           	<li><%=link_to "Escuelas", :tabindex => "-1"%></li>
-	           	<li><%=link_to "Localidades", :tabindex => "-1"%></li>
-	          </ul>
-	        </li>
-	         <li class="dropdown">
-	          <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Reportes <b class="caret"></b></a>
-	          <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
-	           	<li><%=link_to "Reclamos Total", :tabindex => "-1"%></li>
-	           	<li><%=link_to "Reclamos Por Escuela", :tabindex => "-1"%></li>
-	          </ul>
-	        </li> 
-      
+		    	<li class="dropdown">
+		          <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Cursos <b class="caret"></b></a>
+		          <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+		           	<li><%=link_to "Listado de Cursos",:tabindex => "-1"%></li>
+		           	<li><%=link_to "Cursos Disponibles", :tabindex => "-1"%></li>
+		          </ul>
+		        </li>
+		         <li class="dropdown">
+		          <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Personas <b class="caret"></b></a>
+		          <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+		           	<li><%=link_to "Listado de Personas", :tabindex => "-1"%></li>
+		          </ul>
+		        </li>
+
+		    <% elsif (current_user.role? :admin) then %>
+                <li class="dropdown">
+		          <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Cursos <b class="caret"></b></a>
+		          <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+		           	<li><%=link_to "Listado de Cursos",:tabindex => "-1"%></li>
+		           	<li><%=link_to "Cursos Disponibles", :tabindex => "-1"%></li>
+		          </ul>
+		        </li>
+		        <li class="dropdown">
+		          <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Personas <b class="caret"></b></a>
+		          <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+		           	<li><%=link_to "Listado de Personas", :tabindex => "-1"%></li>
+		          </ul>
+		        </li>
+		         <li class="dropdown">
+		          <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
+		          <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+		           	<li><%=link_to "Usuarios", users_path, :tabindex => "-1"%></li>
+		           	<li><%=link_to "Roles", roles_path, :tabindex => "-1"%></li>
+		          </ul>
+		        </li>
+            <% end %>
         <% end %>
       </ul>
       <!-- INFORMACION DE LOGGING -->
       <ul class="nav pull-right">
         <li id="fat-menu" class="dropdown">
           <% if user_signed_in? %>
-	          <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">Bienvenido: <%= current_user.apellidos %>, <%= current_user.nombres %> <b class="caret"></b></a>
+	          <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">Bienvenido: <%= current_user.email %><b class="caret"></b></a>
 	          <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
 	          	<li><%=link_to "Mi cuenta", edit_user_registration_path, :tabindex => "-1"%></li>
 	            <li class="divider"></li>
