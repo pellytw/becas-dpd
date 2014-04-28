@@ -10,7 +10,7 @@ Devise.setup do |config|
   # config.mailer = "Devise::Mailer"
 
   # Automatically apply schema changes in tableless databases
-  config.apply_schema = false
+  # config.apply_schema = false
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
@@ -113,7 +113,7 @@ Devise.setup do |config|
 
   # If true, uses the password salt as remember token. This should be turned
   # to false if you are not using database authenticatable.
-  config.use_salt_as_remember_token = true
+  # config.use_salt_as_remember_token = true
 
   # Options to be passed to the created cookie. For instance, you can set
   # :secure => true in order to force SSL only cookies.
@@ -220,4 +220,5 @@ Devise.setup do |config|
   #   manager.intercept_401 = false
   #   manager.default_strategies(:scope => :user).unshift :some_external_strategy
   # end
+#  config.secret_key = 'a38bc1f11ee4cb245ec2b0b67afa124ee8facb41d39e3a2bae14207bec2e31520cd881ad5ab00f6868d78a4eb88649dfc9d1fb2dfce6f9aae0c7bd43a1e46b08'
 end
