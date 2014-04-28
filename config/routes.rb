@@ -4,13 +4,13 @@ Mysecurity::Application.routes.draw do
  
   resources :institucion_oferentes
 
-  get "cursos/cursos_disponibles"
+  get "cursos/cursos_disponibles", to: 'cursos#cursos_disponibles'
 
-  get "cursos/inscriptos"
+  get "cursos/inscriptos", to: 'cursos#inscriptos'
 
-  get "personas/existe_persona"
+  get "personas/existe_persona", to: 'personas#existe_persona'
 
-  get "personas/alta_curso"
+  get "personas/alta_curso", to: "personas#alta_curso"
 
   resources :cursos
 
