@@ -229,7 +229,7 @@
     $("#btn-nro-doc").click(function() {
        var nro_doc = $("#nro_doc").val(); 
        $.ajax({
-         url: '/personas/existe_persona?nro_doc=' + nro_doc,
+         url: '/soft/becas-dpd/personas/existe_persona?nro_doc=' + nro_doc,
          type: 'GET',
        })
        .done(function(data) {
