@@ -1,4 +1,6 @@
 class CursosController < ApplicationController
+  #before_filter :authenticate_user!
+  #load_and_authorize_resource 
   # GET /cursos
   # GET /cursos.json
   def index

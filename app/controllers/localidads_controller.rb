@@ -1,4 +1,6 @@
 class LocalidadsController < ApplicationController
+  before_filter :authenticate_user!
+  load_and_authorize_resource 
   # GET /localidads
   # GET /localidads.json
   def index

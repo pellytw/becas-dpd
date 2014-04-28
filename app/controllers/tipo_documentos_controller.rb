@@ -1,4 +1,6 @@
 class TipoDocumentosController < ApplicationController
+  before_filter :authenticate_user!
+  load_and_authorize_resource 
   # GET /tipo_documentos
   # GET /tipo_documentos.json
   def index

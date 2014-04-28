@@ -1,3 +1,5 @@
+<% if can? :manage, @cursos %>
+
 <%= form_for(@curso, :html => { :class => "form-horizontal"}) do |f| %>
   <% if @curso.errors.any? %>
     <div id="error_explanation">
@@ -172,4 +174,13 @@
   </div>
 <% end %>
 
+
+<% else %>
+    
+   <%= flash[:error] = "Usted no está autorizado para ingresar a esta página" %>
+   <script type="text/javascript">
+     window.location.href="/cursos/cursos_disponibles"
+   </script>
+    
+<% end %>
 

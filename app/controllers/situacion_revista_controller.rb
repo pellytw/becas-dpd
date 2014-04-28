@@ -1,4 +1,6 @@
 class SituacionRevistaController < ApplicationController
+  before_filter :authenticate_user!
+  load_and_authorize_resource 
   # GET /situacion_revista
   # GET /situacion_revista.json
   def index

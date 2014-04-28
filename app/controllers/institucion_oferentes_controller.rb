@@ -1,4 +1,6 @@
 class InstitucionOferentesController < ApplicationController
+  before_filter :authenticate_user!
+  load_and_authorize_resource 
   # GET /institucion_oferentes
   # GET /institucion_oferentes.json
   def index

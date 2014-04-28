@@ -1,3 +1,5 @@
+<% if can? :manage, @personas %>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -68,3 +70,13 @@
 
 <%= link_to 'Edit', edit_persona_path(@persona) %> |
 <%= link_to 'Back', personas_path %>
+
+
+<% else %>
+    
+   <%= flash[:error] = "Usted no está autorizado para ingresar a esta página" %>
+   <script type="text/javascript">
+     window.location.href="/cursos/cursos_disponibles"
+   </script>
+    
+<% end %>

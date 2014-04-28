@@ -1,3 +1,4 @@
+<% if can? :manage, @cursos %>
 <h1>Listado de Cursos</h1>
 
 
@@ -59,3 +60,12 @@
 <br />
 
   <%= link_to 'Agregar Curso', new_curso_path, :class => "btn btn-success" %>
+
+<% else %>
+    
+   <%= flash[:error] = "Usted no está autorizado para ingresar a esta página" %>
+   <script type="text/javascript">
+     window.location.href="/cursos/cursos_disponibles"
+   </script>
+    
+<% end %>

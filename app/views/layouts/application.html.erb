@@ -21,43 +21,39 @@
        	
        	<% if user_signed_in? then %>
 
-       	    <% if (current_user.role? :dpd) then %>
+       	    <% if (current_user.role? :dpd) || (current_user.role? :admin) then %>
        		
 		    	<li class="dropdown">
 		          <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Cursos <b class="caret"></b></a>
 		          <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
-		           	<li><%=link_to "Listado de Cursos",:tabindex => "-1"%></li>
-		           	<li><%=link_to "Cursos Disponibles", :tabindex => "-1"%></li>
+		           	<li><%=link_to "Listado de Cursos", cursos_path, :tabindex => "-1"%></li>
+		           	<li><%=link_to "Cursos Disponibles", cursos_cursos_disponibles_path, :tabindex => "-1"%></li>
 		          </ul>
 		        </li>
 		         <li class="dropdown">
 		          <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Personas <b class="caret"></b></a>
 		          <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
-		           	<li><%=link_to "Listado de Personas", :tabindex => "-1"%></li>
+		           	<li><%=link_to "Listado de Personas", personas_path, :tabindex => "-1"%></li>
+		          </ul>
+		        </li>
+		        </li>
+		         <li class="dropdown">
+		          <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Configuración <b class="caret"></b></a>
+		          <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+		           	<li><%=link_to "Escuelas", escuelas_path, :tabindex => "-1"%></li>
+		           	<li><%=link_to "Situación de revista", situacion_revista_path, :tabindex => "-1"%></li>
 		          </ul>
 		        </li>
 
-		    <% elsif (current_user.role? :admin) then %>
-                <li class="dropdown">
-		          <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Cursos <b class="caret"></b></a>
-		          <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
-		           	<li><%=link_to "Listado de Cursos",:tabindex => "-1"%></li>
-		           	<li><%=link_to "Cursos Disponibles", :tabindex => "-1"%></li>
-		          </ul>
-		        </li>
-		        <li class="dropdown">
-		          <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Personas <b class="caret"></b></a>
-		          <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
-		           	<li><%=link_to "Listado de Personas", :tabindex => "-1"%></li>
-		          </ul>
-		        </li>
-		         <li class="dropdown">
-		          <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
-		          <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
-		           	<li><%=link_to "Usuarios", users_path, :tabindex => "-1"%></li>
-		           	<li><%=link_to "Roles", roles_path, :tabindex => "-1"%></li>
-		          </ul>
-		        </li>
+		        <% if (current_user.role? :admin) then %>
+                	<li class="dropdown">
+			          <a href="#" id="drop2" role="button" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
+			          <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+			           	<li><%=link_to "Usuarios", users_path, :tabindex => "-1"%></li>
+			           	<li><%=link_to "Roles", roles_path, :tabindex => "-1"%></li>
+			          </ul>
+			        </li>
+		        <% end %>
             <% end %>
         <% end %>
       </ul>
@@ -72,7 +68,7 @@
 	            <li><%= link_to 'Salir', destroy_user_session_path, :method => :delete, :tabindex => "-1" %></li>            
 	          </ul>
 	      <% else %>	          
-	          	<li><%= link_to "Iniciar Sesion", new_user_session_path , :tabindex => "-1" %></li> 	  
+	          	<li><%= link_to "Iniciar Sesión", new_user_session_path , :tabindex => "-1" %></li> 	  
 	          </ul>
 		  <% end %>
         </li>
