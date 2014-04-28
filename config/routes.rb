@@ -1,4 +1,6 @@
 Mysecurity::Application.routes.draw do
+
+  scope '/soft/becas-dpd' do
  
   resources :institucion_oferentes
 
@@ -94,5 +96,5 @@ Mysecurity::Application.routes.draw do
   #
 
   root :to => "cursos#cursos_disponibles"
-
+  end
 end
