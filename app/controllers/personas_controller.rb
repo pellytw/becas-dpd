@@ -60,7 +60,7 @@ class PersonasController < ApplicationController
         #entonces chequeamos si ya está en dos cursos
         if contador_curso(@persona_aux.id, params["idCurso"]) > 1 then
           respond_to do |format|
-            format.html { redirect_to "/cursos/cursos_disponibles", alert: 'Usted ya supero el maximo de inscripciones disponibles.' }
+            format.html { redirect_to "/soft/becas-dpd/cursos/cursos_disponibles", alert: 'Usted ya supero el maximo de inscripciones disponibles.' }
             format.json { head :no_content }
           end
         else
@@ -69,7 +69,7 @@ class PersonasController < ApplicationController
           #vemos si el curso ya supero el cupo de inscriptos
           if PersonaCurso.where(:curso_id => params["idCurso"]).count >= @curso.cupo_inscripcion then
             respond_to do |format|
-              format.html { redirect_to "/cursos/cursos_disponibles", alert: 'Este curso ya alcanzo el limite de inscriptos.' }
+              format.html { redirect_to "/soft/becas-dpd/cursos/cursos_disponibles", alert: 'Este curso ya alcanzo el limite de inscriptos.' }
               format.json { head :no_content }
             end
           else
@@ -89,7 +89,7 @@ class PersonasController < ApplicationController
       else
         #no se puede inscribir
         respond_to do |format|
-          format.html { redirect_to "/cursos/cursos_disponibles", alert: 'Usted ya esta inscripto en ese curso.' }
+          format.html { redirect_to "/soft/becas-dpd/cursos/cursos_disponibles", alert: 'Usted ya esta inscripto en ese curso.' }
           format.json { head :no_content }
         end
       end
@@ -98,7 +98,7 @@ class PersonasController < ApplicationController
       #vemos si el curso ya supero el cupo de inscriptos
       if PersonaCurso.where(:curso_id => params["idCurso"]).count >= @curso.cupo_inscripcion then
         respond_to do |format|
-          format.html { redirect_to "/cursos/cursos_disponibles", alert: 'Este curso ya alcanzo el limite de inscriptos.' }
+          format.html { redirect_to "/soft/becas-dpd/cursos/cursos_disponibles", alert: 'Este curso ya alcanzo el limite de inscriptos.' }
           format.json { head :no_content }
         end
       else
@@ -109,7 +109,7 @@ class PersonasController < ApplicationController
             @curso = Curso.find(params["idCurso"])
             @persona_curso = PersonaCurso.create(:persona_id => @persona.id, :curso_id => @curso.id)
             @persona_curso.save
-            format.html { redirect_to @persona, notice: 'Persona was successfully created.' }
+            format.html { redirect_to "/soft/becas-dpd/cursos/cursos_disponibles", notice: 'Se ha inscripto correctamente.' }
             format.json { render json: @persona, status: :created, location: @persona }
           else
             format.html { render  "new" }

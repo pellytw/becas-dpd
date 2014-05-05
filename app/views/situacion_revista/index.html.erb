@@ -1,6 +1,6 @@
-<h1>Listing situacion_revista</h1>
+<h1>Listado de Situaciones de Revista</h1>
 
-<table>
+<table class="table table-striped">
   <tr>
     <th>Nombre</th>
     <th></th>
@@ -11,13 +11,13 @@
 <% @situacion_revista.each do |situacion_revistum| %>
   <tr>
     <td><%= situacion_revistum.nombre %></td>
-    <td><%= link_to 'Show', situacion_revistum %></td>
-    <td><%= link_to 'Edit', edit_situacion_revistum_path(situacion_revistum) %></td>
-    <td><%= link_to 'Destroy', situacion_revistum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Ver', situacion_revistum, :class => "btn" %></td>
+    <td><%= link_to 'Editar', edit_situacion_revistum_path(situacion_revistum), :class => "btn" %></td>
+    <td><%= link_to 'Eliminar', situacion_revistum, method: :delete, data: { confirm: 'Seguro desea eliminar?' }, :class => "btn" %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Situacion revistum', new_situacion_revistum_path %>
+<%= link_to 'Nueva Situación de Revista', new_situacion_revistum_path %>
