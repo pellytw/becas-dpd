@@ -1,4 +1,4 @@
-<% if can? :manage, @cursos %>
+<% if can? :manage, Curso %>
 
 <%= form_for(@curso, :html => { :class => "form-horizontal"}) do |f| %>
   <% if @curso.errors.any? %>
