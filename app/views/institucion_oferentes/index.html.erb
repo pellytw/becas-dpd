@@ -25,13 +25,13 @@
     <td><%= institucion_oferente.nro_calle %></td>
     <td><%= institucion_oferente.piso %></td>
     <td><%= institucion_oferente.depto %></td>
-    <td><%= link_to 'Show', institucion_oferente %></td>
-    <td><%= link_to 'Edit', edit_institucion_oferente_path(institucion_oferente) %></td>
-    <td><%= link_to 'Destroy', institucion_oferente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Ver', institucion_oferente %></td>
+    <td><%= link_to 'Editar', edit_institucion_oferente_path(institucion_oferente) %></td>
+    <td><%= link_to 'Eliminar', institucion_oferente, method: :delete, data: { confirm: 'Seguro desea eliminar' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Institucion oferente', new_institucion_oferente_path %>
+<%= link_to 'Nueva Institución Oferente', new_institucion_oferente_path %>
