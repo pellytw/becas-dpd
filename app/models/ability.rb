@@ -15,6 +15,7 @@ class Ability
 	      can :manage, [Persona]
 	      can :manage, [InstitucionOferente]
 	      can :manage, [Escuela]
+	      can :manage, [SituacionRevistum]
 	      can :manage, [Titulo]
 	    end    
     end    

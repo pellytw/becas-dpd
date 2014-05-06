@@ -4,20 +4,29 @@
   <tr>
     <th>Nombre</th>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @situacion_revista.each do |situacion_revistum| %>
   <tr>
     <td><%= situacion_revistum.nombre %></td>
-    <td><%= link_to 'Ver', situacion_revistum, :class => "btn" %></td>
-    <td><%= link_to 'Editar', edit_situacion_revistum_path(situacion_revistum), :class => "btn" %></td>
-    <td><%= link_to 'Eliminar', situacion_revistum, method: :delete, data: { confirm: 'Seguro desea eliminar?' }, :class => "btn" %></td>
+    <td>
+      <div class="btn-group pull-right">
+        <a class="btn dropdown-toggle btn-primary" data-toggle="dropdown" href="#">
+          Acciones
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li><%= link_to 'Ver', situacion_revistum %></li>
+          <li><%= link_to 'Editar', edit_situacion_revistum_path(situacion_revistum) %></li>
+          <li><%= link_to 'Eliminar', situacion_revistum, method: :delete, data: { confirm: 'Seguro desea eliminar?' } %></li>
+          </li>
+        </ul>
+      </div>
+    </td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'Nueva Situación de Revista', new_situacion_revistum_path %>
+<%= link_to 'Agregar Situación de Revista', new_situacion_revistum_path, :class => "btn btn-success" %>
