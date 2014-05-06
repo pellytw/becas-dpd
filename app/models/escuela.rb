@@ -3,5 +3,9 @@ class Escuela < ActiveRecord::Base
 
   has_many :persona
   belongs_to :localidad
+
+  def to_s
+  	"#{ self.nombre } - #{ self.nro }"
+  end
   
 end

@@ -46,7 +46,7 @@ class InstitucionOferentesController < ApplicationController
 
     respond_to do |format|
       if @institucion_oferente.save
-        format.html { redirect_to @institucion_oferente, notice: 'Institucion oferente was successfully created.' }
+        format.html { redirect_to @institucion_oferente, notice: 'Institucion oferente se ha creado correctamente.' }
         format.json { render json: @institucion_oferente, status: :created, location: @institucion_oferente }
       else
         format.html { render action: "new" }

@@ -46,7 +46,7 @@ class EscuelasController < ApplicationController
 
     respond_to do |format|
       if @escuela.save
-        format.html { redirect_to @escuela, notice: 'Escuela was successfully created.' }
+        format.html { redirect_to @escuela, notice: 'Escuela se ha creado correctamente.' }
         format.json { render json: @escuela, status: :created, location: @escuela }
       else
         format.html { render action: "new" }

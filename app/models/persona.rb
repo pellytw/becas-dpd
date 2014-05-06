@@ -13,4 +13,8 @@ class Persona < ActiveRecord::Base
   validates :apellidos_y_nombres, :presence => true
   validates :nro_documento, :presence => true, uniqueness: true
 
+  def to_s
+    "#{ self.apellidos_y_nombres }"
+  end
+
 end

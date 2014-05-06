@@ -46,7 +46,7 @@ class TitulosController < ApplicationController
 
     respond_to do |format|
       if @titulo.save
-        format.html { redirect_to @titulo, notice: 'Titulo was successfully created.' }
+        format.html { redirect_to @titulo, notice: 'Titulo se ha creado correctamente.' }
         format.json { render json: @titulo, status: :created, location: @titulo }
       else
         format.html { render action: "new" }

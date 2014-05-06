@@ -77,7 +77,7 @@ class PersonasController < ApplicationController
               if @persona.save
                 @persona_curso = PersonaCurso.create(:persona_id => @persona.id, :curso_id => @curso.id)
                 @persona_curso.save
-                format.html { redirect_to @persona, notice: 'Persona was successfully created.' }
+                format.html { redirect_to @persona, notice: 'Persona se ha creado correctamente.' }
                 format.json { render json: @persona, status: :created, location: @persona }
               else          
                 format.html { render  "new" }

@@ -46,7 +46,7 @@ class SituacionRevistaController < ApplicationController
 
     respond_to do |format|
       if @situacion_revistum.save
-        format.html { redirect_to @situacion_revistum, notice: 'Situacion revistum was successfully created.' }
+        format.html { redirect_to @situacion_revistum, notice: 'Situacion revistum se ha creado correctamente.' }
         format.json { render json: @situacion_revistum, status: :created, location: @situacion_revistum }
       else
         format.html { render action: "new" }

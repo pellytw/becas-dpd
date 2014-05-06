@@ -46,7 +46,7 @@ class TipoDocumentosController < ApplicationController
 
     respond_to do |format|
       if @tipo_documento.save
-        format.html { redirect_to @tipo_documento, notice: 'Tipo documento was successfully created.' }
+        format.html { redirect_to @tipo_documento, notice: 'Tipo documento se ha creado correctamente.' }
         format.json { render json: @tipo_documento, status: :created, location: @tipo_documento }
       else
         format.html { render action: "new" }
