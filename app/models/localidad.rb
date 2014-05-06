@@ -5,6 +5,7 @@ class Localidad < ActiveRecord::Base
   belongs_to :region
   has_many :persona
   has_many :escuela
+  has_many :curso
 
   def to_s
   	"#{ self.nombre }"

@@ -40,7 +40,8 @@
         No
       <% end %>
     </td>
-    <td><div class="btn-group">
+    <td>
+      <div class="btn-group">
         <a class="btn dropdown-toggle btn-primary" data-toggle="dropdown" href="#">
           Acciones
           <span class="caret"></span>
@@ -52,7 +53,8 @@
           <li><%= link_to 'Eliminar', curso, method: :delete, data: { confirm: 'Seguro desea eliminar?' } %></li>
           </li>
         </ul>
-      </div></td>
+      </div>
+    </td>
   </tr>
 <% end %>
 </table>
