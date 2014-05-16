@@ -91,6 +91,18 @@ class CursosController < ApplicationController
       #redirect_to @documento, notice: 'Se ha dado salida a la nota de manera correcta'
       redirect_to cursos_path
     end
-  end 
+  end
+
+  def setear_disponibilidad
+    @curso = Curso.find(params[:idCurso])
+    if @curso.disponible then
+      @curso.disponible = false
+    else
+      @curso.disponible = true
+    end
+    if @curso.save then
+      redirect_to cursos_path
+    end
+  end
 
 end
