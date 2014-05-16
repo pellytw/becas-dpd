@@ -11,9 +11,9 @@
         <div class="span3 pagination-centered" style="padding: 10px; margin:40px 55px 10px 40px;border:1px solid;border-radius:25px;box-shadow: 10px 10px 5px #888888;">
           <%= image_tag("sello.png", :alt => "problemas con la foto", :class => "img-circle", :style => "width: 140px; height: 140px;") %>
           <% if cd.nombre.length > 20 then %>
-            <h3> <%= cd.nombre[0..20] + "..." %> </h3>
+            <h4> <%= cd.nombre[0..40] + "..." %> </h4>
           <% else %>
-            <h3> <%= cd.nombre %> </h3>
+            <h4> <%= cd.nombre %> </h4><br/>
           <% end %>
           <% if cd.resenia.length > 20 then %>
             <p align="justify"> <b>reseña:</b> <%= cd.resenia[0..20] + "..." %> </p>
@@ -47,9 +47,9 @@
         <div class="span3 pagination-centered" style="padding: 10px; margin:40px 55px 10px 40px;border:1px solid;border-radius:25px;box-shadow: 10px 10px 5px #888888;">
           <%= image_tag("sello.png", :alt => "problemas con la foto", :class => "img-circle", :style => "width: 140px; height: 140px;") %>
           <% if cd.nombre.length > 20 then %>
-            <h3> <%= cd.nombre[0..20] + "..." %> </h3>
+            <h4> <%= cd.nombre[0..20] + "..." %> </h4>
           <% else %>
-            <h3> <%= cd.nombre %> </h3>
+            <h4> <%= cd.nombre %> </h4>
           <% end %>
           <% if cd.resenia.length > 20 then %>
             <p align="justify"> <b>reseña:</b> <%= cd.resenia[0..20] + "..." %> </p>
