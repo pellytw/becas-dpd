@@ -11,6 +11,7 @@
     <th>Nro. expediente</th>
     <th>Capacitadores</th>
     <th>Disponible</th>
+    <th>Finalizado</th>
     <th></th>
   </tr>
 
@@ -35,6 +36,13 @@
     </td>
     <td>
       <% if curso.disponible == true then %>
+        Si
+      <% else %>
+        No
+      <% end %>
+    </td>
+    <td>
+      <% if curso.finalizado == true then %>
         Si
       <% else %>
         No

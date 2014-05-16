@@ -1,14 +1,7 @@
 
 <form class="form-horizontal">
 
-  <div class="row">
-    <div class="span12">
-      <h4>Cursos Disponibles para inscripción</h4>
-    </div>
-  </div>
-
-  <hr/>
-
+  <legend>Cursos Disponibles</legend>
 
   <% cursos_disponibles = Array.new %>
   <% cursos_disponibles = Curso.where(:disponible => true) %>
@@ -17,11 +10,32 @@
       <% slice.each do |cd| %>
         <div class="span3 pagination-centered" style="padding-right: 100px">
           <%= image_tag("curso.png", :alt => "problemas con la foto", :class => "img-circle", :style => "width: 140px; height: 140px;") %>
-          <h2> <%= cd.nombre %> </h2>
-          <p align="justify"> <b>reseña:</b> <%= cd.resenia %> </p>
+          <h3> <%= cd.nombre[0..50].html_safe %> </h3>
+          <p align="justify"> <b>reseña:</b> <%= cd.resenia[0..50].html_safe %> </p>
           <p align="justify"> <b>cupo:</b> <%= cd.cupo_inscripcion %> </p>
-          <p align="justify"> <b>destinatarios:</b> <%= cd.destinatarios %> </p>
-          <p align="justify"> <b>fechas y horarios:</b> <%= cd.fechas_y_horarios %> </p>
+          <p align="justify"> <b>destinatarios:</b> <%= cd.destinatarios[0..50].html_safe %> </p>
+          <p align="justify"> <b>fechas y horarios:</b> <%= cd.fechas_y_horarios[0..50].html_safe %> </p>
+          <p><%= link_to 'Ver detalles >>', cd, :class => "btn btn-success" %></p>
+        </div>
+      <% end %>
+    </div>
+    <hr/>
+  <% end %>
+
+  <legend>Cursos Finalizados</legend>
+
+  <% cursos_finalizados = Array.new %>
+  <% cursos_finalizados = Curso.where(:finalizado => true) %>
+  <% cursos_finalizados.each_slice(3) do |slice| %>
+    <div class="row">
+      <% slice.each do |cd| %>
+        <div class="span3 pagination-centered" style="padding-right: 100px">
+          <%= image_tag("curso.png", :alt => "problemas con la foto", :class => "img-circle", :style => "width: 140px; height: 140px;") %>
+          <h3> <%= cd.nombre[0..50].html_safe %> </h3>
+          <p align="justify"> <b>reseña:</b> <%= cd.resenia[0..50].html_safe %> </p>
+          <p align="justify"> <b>cupo:</b> <%= cd.cupo_inscripcion %> </p>
+          <p align="justify"> <b>destinatarios:</b> <%= cd.destinatarios[0..50].html_safe %> </p>
+          <p align="justify"> <b>fechas y horarios:</b> <%= cd.fechas_y_horarios[0..50].html_safe %> </p>
           <p><%= link_to 'Ver detalles >>', cd, :class => "btn btn-success" %></p>
         </div>
       <% end %>
