@@ -12,6 +12,9 @@ Mysecurity::Application.routes.draw do
 
   get "personas/alta_curso", to: "personas#alta_curso"
 
+  match 'cursos/finalizar_curso/' => 'cursos#finalizar_curso' 
+  match 'cursos/finalizar_curso/:idCurso' => 'cursos#finalizar_curso'
+
   resources :cursos
 
   resources :personas

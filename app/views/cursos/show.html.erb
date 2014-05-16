@@ -227,4 +227,10 @@
 <button class="btn btn-success" onclick="location.href='<%=url_for :controller => "personas", :action => "new", :idCurso => @curso.id %>'">Inscribirse</button>
 <!-- <button class="btn btn-success" onclick="location.href='/personas/alta_curso?idCurso=<%=@curso.id%>'">Inscribirse</button> -->
 
-| <%= link_to 'Atrás', cursos_path, :class => "btn btn-primary" %>
+| 
+
+<% if user_signed_in? %>
+  <%= link_to 'Atrás', cursos_path, :class => "btn btn-primary" %>
+<% else %>
+  <%= link_to 'Atrás', cursos_cursos_disponibles_path, :class => "btn btn-primary" %>
+<% end %>

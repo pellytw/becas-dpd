@@ -83,4 +83,14 @@ class CursosController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def finalizar_curso
+    @curso = Curso.find(params[:idCurso])
+    @curso.finalizado = true
+    if @curso.save then
+      #redirect_to @documento, notice: 'Se ha dado salida a la nota de manera correcta'
+      redirect_to cursos_path
+    end
+  end 
+
 end
