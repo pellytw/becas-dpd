@@ -8,18 +8,33 @@
   <% cursos_disponibles.each_slice(3) do |slice| %>
     <div class="row">
       <% slice.each do |cd| %>
-        <div class="span3 pagination-centered" style="padding-right: 100px">
-          <%= image_tag("curso.png", :alt => "problemas con la foto", :class => "img-circle", :style => "width: 140px; height: 140px;") %>
-          <h3> <%= cd.nombre[0..50].html_safe %> </h3>
-          <p align="justify"> <b>reseña:</b> <%= cd.resenia[0..50].html_safe %> </p>
+        <div class="span3 pagination-centered" style="padding: 10px; margin:40px 55px 10px 40px;border:1px solid;border-radius:25px;box-shadow: 10px 10px 5px #888888;">
+          <%= image_tag("sello.png", :alt => "problemas con la foto", :class => "img-circle", :style => "width: 140px; height: 140px;") %>
+          <% if cd.nombre.length > 20 then %>
+            <h3> <%= cd.nombre[0..20] + "..." %> </h3>
+          <% else %>
+            <h3> <%= cd.nombre %> </h3>
+          <% end %>
+          <% if cd.resenia.length > 20 then %>
+            <p align="justify"> <b>reseña:</b> <%= cd.resenia[0..20] + "..." %> </p>
+          <% else %>
+            <p align="justify"> <b>reseña:</b> <%= cd.resenia %> </p>
+          <% end %>
           <p align="justify"> <b>cupo:</b> <%= cd.cupo_inscripcion %> </p>
-          <p align="justify"> <b>destinatarios:</b> <%= cd.destinatarios[0..50].html_safe %> </p>
-          <p align="justify"> <b>fechas y horarios:</b> <%= cd.fechas_y_horarios[0..50].html_safe %> </p>
+          <% if cd.destinatarios.length > 20 then %>
+            <p align="justify"> <b>destinatarios:</b> <%= cd.destinatarios[0..20] + "..." %> </p>
+          <% else %>
+            <p align="justify"> <b>destinatarios:</b> <%= cd.destinatarios %> </p>
+          <% end %>
+          <% if cd.fechas_y_horarios.length > 20 then %>
+            <p align="justify"> <b>fechas y horarios:</b> <%= cd.fechas_y_horarios[0..20] + "..." %> </p>
+          <% else %>
+            <p align="justify"> <b>fechas y horarios:</b> <%= cd.fechas_y_horarios %> </p>
+          <% end %>
           <p><%= link_to 'Ver detalles >>', cd, :class => "btn btn-success" %></p>
         </div>
       <% end %>
-    </div>
-    <hr/>
+    </div><br/><br/>
   <% end %>
 
   <legend>Cursos Finalizados</legend>
@@ -29,17 +44,33 @@
   <% cursos_finalizados.each_slice(3) do |slice| %>
     <div class="row">
       <% slice.each do |cd| %>
-        <div class="span3 pagination-centered" style="padding-right: 100px">
-          <%= image_tag("curso.png", :alt => "problemas con la foto", :class => "img-circle", :style => "width: 140px; height: 140px;") %>
-          <h3> <%= cd.nombre[0..50].html_safe %> </h3>
-          <p align="justify"> <b>reseña:</b> <%= cd.resenia[0..50].html_safe %> </p>
+        <div class="span3 pagination-centered" style="padding: 10px; margin:40px 55px 10px 40px;border:1px solid;border-radius:25px;box-shadow: 10px 10px 5px #888888;">
+          <%= image_tag("sello.png", :alt => "problemas con la foto", :class => "img-circle", :style => "width: 140px; height: 140px;") %>
+          <% if cd.nombre.length > 20 then %>
+            <h3> <%= cd.nombre[0..20] + "..." %> </h3>
+          <% else %>
+            <h3> <%= cd.nombre %> </h3>
+          <% end %>
+          <% if cd.resenia.length > 20 then %>
+            <p align="justify"> <b>reseña:</b> <%= cd.resenia[0..20] + "..." %> </p>
+          <% else %>
+            <p align="justify"> <b>reseña:</b> <%= cd.resenia %> </p>
+          <% end %>
           <p align="justify"> <b>cupo:</b> <%= cd.cupo_inscripcion %> </p>
-          <p align="justify"> <b>destinatarios:</b> <%= cd.destinatarios[0..50].html_safe %> </p>
-          <p align="justify"> <b>fechas y horarios:</b> <%= cd.fechas_y_horarios[0..50].html_safe %> </p>
+          <% if cd.destinatarios.length > 20 then %>
+            <p align="justify"> <b>destinatarios:</b> <%= cd.destinatarios[0..20] + "..." %> </p>
+          <% else %>
+            <p align="justify"> <b>destinatarios:</b> <%= cd.destinatarios %> </p>
+          <% end %>
+          <% if cd.fechas_y_horarios.length > 20 then %>
+            <p align="justify"> <b>fechas y horarios:</b> <%= cd.fechas_y_horarios[0..20] + "..." %> </p>
+          <% else %>
+            <p align="justify"> <b>fechas y horarios:</b> <%= cd.fechas_y_horarios %> </p>
+          <% end %>
           <p><%= link_to 'Ver detalles >>', cd, :class => "btn btn-success" %></p>
         </div>
       <% end %>
-    </div>
+    </div><br/><br/>
     <hr/>
   <% end %>
 
