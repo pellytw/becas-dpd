@@ -8,7 +8,7 @@
   <% cursos_disponibles.each_slice(3) do |slice| %>
     <div class="row">
       <% slice.each do |cd| %>
-        <div class="span3 pagination-centered" style="padding: 10px; margin:40px 55px 10px 40px;border:1px solid;border-radius:25px;box-shadow: 10px 10px 5px #888888;">
+        <div class="span3 pagination-centered" style="background-color: #dff0d8;padding: 10px; margin:20px 55px 20px 40px;border-radius:25px;box-shadow: 10px 10px 5px #888888;">
           <%= image_tag("sello.png", :alt => "problemas con la foto", :class => "img-circle", :style => "width: 140px; height: 140px;") %>
           <% if cd.nombre.length > 20 then %>
             <h4> <%= cd.nombre[0..40] + "..." %> </h4>
@@ -34,7 +34,7 @@
           <p><%= link_to 'Ver detalles >>', cd, :class => "btn btn-success" %></p>
         </div>
       <% end %>
-    </div><br/><br/>
+    </div><br/>
   <% end %>
 
   <legend>Cursos Finalizados</legend>
@@ -44,7 +44,7 @@
   <% cursos_finalizados.each_slice(3) do |slice| %>
     <div class="row">
       <% slice.each do |cd| %>
-        <div class="span3 pagination-centered" style="padding: 10px; margin:40px 55px 10px 40px;border:1px solid;border-radius:25px;box-shadow: 10px 10px 5px #888888;">
+        <div class="span3 pagination-centered" style="background-color: #f2dede; padding: 10px; margin:20px 55px 20px 40px;border-radius:25px;box-shadow: 10px 10px 5px #888888;">
           <%= image_tag("sello.png", :alt => "problemas con la foto", :class => "img-circle", :style => "width: 140px; height: 140px;") %>
           <% if cd.nombre.length > 20 then %>
             <h4> <%= cd.nombre[0..20] + "..." %> </h4>
