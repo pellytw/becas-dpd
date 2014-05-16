@@ -57,8 +57,13 @@
         <ul class="dropdown-menu">
           <li><%= link_to 'Ver', curso %></li>
           <li><%= link_to 'Ver Inscriptos', cursos_inscriptos_path(:idCurso => curso.id) %></li>
+          <% if curso.disponible then %> 
+            <li><a href="/soft/becas-dpd/cursos/setear_disponibilidad/<%=curso.id%>" data-confirm="¿Seguro desea poner este curso como no disponible?">No Disponible</a></li>   
+          <% else %>
+            <li><a href="/soft/becas-dpd/cursos/setear_disponibilidad/<%=curso.id%>" data-confirm="¿Seguro desea poner este curso como no disponible?">Disponible</a></li>  
+          <% end %>
           <% if !curso.finalizado then %> 
-            <li><a href="/soft/becas-dpd/cursos/finalizar_curso/<%=curso.id%>" data-confirm="¿Seguro desea finalizar este curso?">Finalizar</a></li>        
+            <li><a href="/soft/becas-dpd/cursos/finalizar_curso/<%=curso.id%>" data-confirm="¿Seguro desea finalizar este curso? Con esto el curso pasa a estar No Disponible">Finalizar</a></li>        
           <% end %>
           <li><%= link_to 'Editar', edit_curso_path(curso) %></li>
           <li><%= link_to 'Eliminar', curso, method: :delete, data: { confirm: 'Seguro desea eliminar?' } %></li>
