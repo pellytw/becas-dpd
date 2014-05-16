@@ -14,15 +14,31 @@
   .controls {
     padding-top: 5px;
   }
-  </style>
+  .cuadro {
+    background: #EFFBFB;
+    border:1px solid;
+    border-radius:2em;
+    border-color: #A9E2F3;
+    padding-left: 10px;
+  }
+  .logo {
+    position:absolute;
+    left:1200px;
+    top:250px;
+  }
+</style>
 
-<form class="form-horizontal" style="background: #EFFBFB">
+<div class="cuadro">
+
+<form class="form-horizontal">
 
   <div class="row">
     <div class="span12" style="margin-top:20px;margin-bottom:20px;">
       <span class="label label-info"><h4><%= @curso.nombre %></h4></span>
     </div>
   </div>
+
+  <div class="logo"><p align="center"><%=link_to image_tag("sello.png")%></p></div>
 
   <div class="row">
     <div class="span6">
@@ -33,7 +49,10 @@
         </div>
       </div>
     </div>
-    <div class="span6">
+  </div>
+
+  <div class="row">
+    <div class="span12">
       <div class="control-group info">
         <label class="control-label"><strong>Lugar geográfico:</strong></label>
         <div class="controls">
@@ -99,7 +118,7 @@
   </div>
 
   <div class="row">
-    <div class="span6">
+    <div class="span12">
       <div class="control-group info">
         <label class="control-label"><strong>Carga horaria presencial:</strong></label>
         <div class="controls">
@@ -107,7 +126,10 @@
         </div>
       </div>
     </div>
-    <div class="span6">
+  </div>
+
+  <div class="row">
+    <div class="span12">
       <div class="control-group info">
         <label class="control-label"><strong>Carga horaria no presencial:</strong></label>
         <div class="controls">
@@ -118,7 +140,7 @@
   </div>
 
   <div class="row">
-    <div class="span6">
+    <div class="span12">
       <div class="control-group info">
         <label class="control-label"><strong>Teléfono de contacto:</strong></label>
         <div class="controls">
@@ -126,7 +148,10 @@
         </div>
       </div>
     </div>
-    <div class="span6">
+  </div>
+
+  <div class="row">
+    <div class="span12">
       <div class="control-group info">
         <label class="control-label"><strong>Correo electrónico:</strong></label>
         <div class="controls">
@@ -153,7 +178,7 @@
         </div>
       </div>
     </div>
-    <div class="span3">
+    <div class="span2">
       <div class="control-group info">
         <label class="control-label"><strong>Piso:</strong></label>
         <div class="controls">
@@ -161,7 +186,7 @@
         </div>
       </div>
     </div>
-    <div class="span3">
+    <div class="span2">
       <div class="control-group info">
         <label class="control-label"><strong>Depto:</strong></label>
         <div class="controls">
@@ -194,6 +219,9 @@
   </div>
 
 </form>
+</div>
+
+</br>
 
 <!-- <button onclick="location.href='http://chubut.edu.ar'" class="btn btn-success">Finalizar</button> -->
 <button class="btn btn-success" onclick="location.href='<%=url_for :controller => "personas", :action => "new", :idCurso => @curso.id %>'">Inscribirse</button>
