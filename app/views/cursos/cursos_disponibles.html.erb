@@ -5,6 +5,13 @@
 
   <% cursos_disponibles = Array.new %>
   <% cursos_disponibles = Curso.where(:disponible => true) %>
+
+  <% if cursos_disponibles.count == 0 %>
+    <div class="alert alert-warning">
+      No hay cursos Disponibles
+    </div>
+  <% else %>
+
   <% cursos_disponibles.each_slice(3) do |slice| %>
     <div class="row">
       <% slice.each do |cd| %>
@@ -36,11 +43,19 @@
       <% end %>
     </div><br/>
   <% end %>
+  <% end %>
 
   <legend>Cursos Finalizados</legend>
 
   <% cursos_finalizados = Array.new %>
   <% cursos_finalizados = Curso.where(:finalizado => true) %>
+
+  <% if cursos_finalizados.count == 0 %>
+    <div class="alert alert-warning">
+      No hay cursos Finalizados
+    </div>
+  <% else %>
+
   <% cursos_finalizados.each_slice(3) do |slice| %>
     <div class="row">
       <% slice.each do |cd| %>
@@ -70,8 +85,8 @@
           <p><%= link_to 'Ver detalles >>', cd, :class => "btn btn-success" %></p>
         </div>
       <% end %>
-    </div><br/><br/>
-    <hr/>
+    </div><br/>
+  <% end %>
   <% end %>
 
 </form>
