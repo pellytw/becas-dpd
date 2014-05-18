@@ -36,14 +36,12 @@ ActiveRecord::Schema.define(:version => 20140516122132) do
   end
 
   create_table "escuelas", :force => true do |t|
-    t.integer  "nro"
-    t.string   "nivel"
     t.string   "nombre"
+    t.integer  "nro"
     t.string   "localidad"
-    t.integer  "region"
+    t.string   "region"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "name"
   end
 
   create_table "institucion_oferentes", :force => true do |t|
@@ -59,16 +57,9 @@ ActiveRecord::Schema.define(:version => 20140516122132) do
     t.datetime "updated_at",          :null => false
   end
 
-  create_table "localidades", :force => true do |t|
-    t.integer  "region_id"
-    t.string   "nombre"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "localidads", :force => true do |t|
-    t.integer  "region_id"
     t.string   "nombre"
+    t.integer  "region_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

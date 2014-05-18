@@ -23,8 +23,9 @@
   }
   .logo {
     position:absolute;
-    left:1300px;
-    top:230px;
+    left:80%;
+    top:35%;
+
   }
 </style>
 
@@ -32,13 +33,13 @@
 
 <form class="form-horizontal">
 
+  <div ><p align="center" class="logo"><%=link_to image_tag("sello.png")%></p></div>
+
   <div class="row">
     <div class="span12" style="margin-top:20px;margin-bottom:20px;">
       <span class="label label-info"><h4><%= @curso.nombre %></h4></span>
     </div>
-  </div>
-
-  <div class="logo"><p align="center"><%=link_to image_tag("sello.png")%></p></div>
+  </div>  
 
   <div class="row">
     <div class="span6">
