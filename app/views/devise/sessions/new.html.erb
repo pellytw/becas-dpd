@@ -1,19 +1,17 @@
-<% @title="Sistema de Cursos - Ministerio de Educación" %>
-
-<h2>Ingresar</h2>
+<h2>Iniciar Sesión</h2>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
+  <div><%= f.label :email %>
   <%= f.email_field :email %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <div><%= f.label :password, "Password" %>
+  <%= f.password_field :password%></div>
 
   <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label "Recordarme" %></div>
+    <div> Recordarme <%= f.check_box :remember_me %></div>
   <% end -%>
-
-  <div><%= f.submit "Ingresar" %></div>
+  </br>
+  <div><%= f.submit "Iniciar Sesión", :class => "btn-primary" %></div>
 <% end %>
 
 <%= render "links" %>

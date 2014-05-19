@@ -3,7 +3,7 @@
 <%= form_for(@curso, :html => { :class => "form-horizontal"}) do |f| %>
   <% if @curso.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@curso.errors.count, "error") %> prohibited this curso from being saved:</h2>
+      <h2>No se pudo guardar el curso, tiene los siguientes errores:</h2>
 
       <ul>
       <% @curso.errors.full_messages.each do |msg| %>
