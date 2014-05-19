@@ -13,6 +13,7 @@
   <% else %>
     <% cursos_disponibles.each_slice(3) do |slice| %>
       <div class="row pagination-centered">
+      <div class="span12 text-center">
         <% slice.each do |cd| %>
           <div class="span3" style="background-color: #dff0d8;padding: 10px; margin:20px 20px 20px 20px;border-radius:25px;box-shadow: 10px 10px 5px #888888;">
             <%= image_tag("sello.png", :alt => "problemas con la foto", :class => "img-circle", :style => "width: 140px; height: 140px;") %>
@@ -40,7 +41,7 @@
             <p><%= link_to 'Ver detalles >>', cd, :class => "btn btn-success" %></p>
           </div>
         <% end %>
-      </div><br/>
+      </div></div><br/>
     <% end %>
   <% end %>
 
