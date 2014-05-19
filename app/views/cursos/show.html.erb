@@ -22,10 +22,8 @@
     padding-left: 10px;
   }
   .logo {
-    position:absolute;
-    left:80%;
-    top:35%;
-
+    text-align:center;
+    padding-top:10px; 
   }
 </style>
 
@@ -33,11 +31,11 @@
 
 <form class="form-horizontal">
 
-  <div ><p align="center" class="logo"><%=link_to image_tag("sello.png")%></p></div>
+  <div class="logo"><p><%=link_to image_tag("sello.png")%></p></div>
 
   <div class="row">
-    <div class="span12" style="margin-top:20px;margin-bottom:20px;">
-      <span class="label label-info"><h4><%= @curso.nombre %></h4></span>
+    <div class="span12">
+      <h4 style="margin-top:20px;margin-bottom:20px;text-align:center;"><%= @curso.nombre %></h4>
     </div>
   </div>  
 
