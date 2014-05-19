@@ -222,11 +222,10 @@
 
 </br>
 
-<!-- <button onclick="location.href='http://chubut.edu.ar'" class="btn btn-success">Finalizar</button> -->
-<button class="btn btn-success" onclick="location.href='<%=url_for :controller => "personas", :action => "new", :idCurso => @curso.id %>'">Inscribirse</button>
-<!-- <button class="btn btn-success" onclick="location.href='/personas/alta_curso?idCurso=<%=@curso.id%>'">Inscribirse</button> -->
-
-| 
+<% if @curso.disponible %>
+  <button class="btn btn-success" onclick="location.href='<%=url_for :controller => "personas", :action => "new", :idCurso => @curso.id %>'">Inscribirse</button> |
+<% end %>
+ 
 
 <% if user_signed_in? %>
   <%= link_to 'Atrás', cursos_path, :class => "btn btn-primary" %>
