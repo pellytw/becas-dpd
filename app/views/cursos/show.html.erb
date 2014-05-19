@@ -22,10 +22,8 @@
     padding-left: 10px;
   }
   .logo {
-    position:absolute;
-    left:80%;
-    top:35%;
-
+    text-align:center;
+    padding-top:10px; 
   }
 </style>
 
@@ -33,11 +31,11 @@
 
 <form class="form-horizontal">
 
-  <div ><p align="center" class="logo"><%=link_to image_tag("sello.png")%></p></div>
+  <div class="logo"><p><%=link_to image_tag("sello.png")%></p></div>
 
   <div class="row">
-    <div class="span12" style="margin-top:20px;margin-bottom:20px;">
-      <span class="label label-info"><h4><%= @curso.nombre %></h4></span>
+    <div class="span12">
+      <h4 style="margin-top:20px;margin-bottom:20px;text-align:center;"><%= @curso.nombre %></h4>
     </div>
   </div>  
 
@@ -224,11 +222,10 @@
 
 </br>
 
-<!-- <button onclick="location.href='http://chubut.edu.ar'" class="btn btn-success">Finalizar</button> -->
-<button class="btn btn-success" onclick="location.href='<%=url_for :controller => "personas", :action => "new", :idCurso => @curso.id %>'">Inscribirse</button>
-<!-- <button class="btn btn-success" onclick="location.href='/personas/alta_curso?idCurso=<%=@curso.id%>'">Inscribirse</button> -->
-
-| 
+<% if @curso.disponible %>
+  <button class="btn btn-success" onclick="location.href='<%=url_for :controller => "personas", :action => "new", :idCurso => @curso.id %>'">Inscribirse</button> |
+<% end %>
+ 
 
 <% if user_signed_in? %>
   <%= link_to 'Atrás', cursos_path, :class => "btn btn-primary" %>
