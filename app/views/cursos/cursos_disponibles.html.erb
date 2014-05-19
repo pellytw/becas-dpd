@@ -17,9 +17,9 @@
           <div class="span3" style="background-color: #dff0d8;padding: 10px; margin:20px 20px 20px 20px;border-radius:25px;box-shadow: 10px 10px 5px #888888;">
             <%= image_tag("sello.png", :alt => "problemas con la foto", :class => "img-circle", :style => "width: 140px; height: 140px;") %>
             <% if cd.nombre.length > 20 then %>
-              <h4> <%= cd.nombre[0..30] + "..." %> </h4>
+              <h4> <%= cd.nombre[0..20] + "..." %> </h4>
             <% else %>
-              <h4> <%= cd.nombre %> </h4><br/><br/>
+              <h4> <%= cd.nombre %> </h4>
             <% end %>
             <% if cd.resenia.length > 20 then %>
               <p align="justify"> <b>reseña:</b> <%= cd.resenia[0..20] + "..." %> </p>
