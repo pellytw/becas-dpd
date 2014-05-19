@@ -87,6 +87,7 @@ class CursosController < ApplicationController
   def finalizar_curso
     @curso = Curso.find(params[:idCurso])
     @curso.finalizado = true
+    @curso.disponible = false
     if @curso.save then
       #redirect_to @documento, notice: 'Se ha dado salida a la nota de manera correcta'
       redirect_to cursos_path
@@ -99,6 +100,7 @@ class CursosController < ApplicationController
       @curso.disponible = false
     else
       @curso.disponible = true
+      @curso.finalizado = false
     end
     if @curso.save then
       redirect_to cursos_path
