@@ -18,6 +18,8 @@ Mysecurity::Application.routes.draw do
   match 'cursos/setear_disponibilidad/' => 'cursos#setear_disponibilidad' 
   match 'cursos/setear_disponibilidad/:idCurso' => 'cursos#setear_disponibilidad'
 
+  match 'personas/becar/:idPersona/:idCurso' => 'personas#becar'
+
   resources :cursos
 
   resources :personas

@@ -170,6 +170,17 @@ class PersonasController < ApplicationController
     return @contador
   end
 
+  def becar
+    @persona = Persona.find(params[:idPersona])
+    if @persona.becado then
+      @persona.becado = false
+    else
+      @persona.becado = true
+    end
+    if @persona.save then
+      redirect_to "/soft/becas-dpd/cursos/inscriptos?idCurso=" + params["idCurso"]
+    end
+  end
 
 
 end
