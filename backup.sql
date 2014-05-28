@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.29, for debian-linux-gnu (i686)
+-- MySQL dump 10.13  Distrib 5.5.35, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: becas
 -- ------------------------------------------------------
--- Server version	5.5.29-0ubuntu0.12.04.1
+-- Server version	5.5.35-0ubuntu0.12.04.2
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -41,8 +41,10 @@ CREATE TABLE `cursos` (
   `cupo_inscripcion` int(11) DEFAULT NULL,
   `nombre` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `institucion_oferente_id` int(11) DEFAULT NULL,
+  `lugar_de_realizacion` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `finalizado` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -51,7 +53,7 @@ CREATE TABLE `cursos` (
 
 LOCK TABLES `cursos` WRITE;
 /*!40000 ALTER TABLE `cursos` DISABLE KEYS */;
-INSERT INTO `cursos` VALUES (34,NULL,NULL,'','','','','',1,'','','2014-05-05 16:02:23','2014-05-05 16:02:23',1,NULL,20,'Curso de Prueba',2);
+INSERT INTO `cursos` VALUES (36,NULL,NULL,'La capacitación en primeros auxilios básicos es una herramienta necesaria para la formación individual en beneficio de la comunidad. \r\nEl objetivo de la misma es la apropiación de conocimiento y herramientas metodológicas  para aplicar en caso de accidentes en la escuela y otras instituciones.\r\n','Docentes de todos los niveles.\r\n','20','10','1643/14',49,'Viernes 30/05/2014 de 17:30 a 21:30 hs\r\nSábado 31/05/2014 de 8:00 a 14:00 hs\r\nViernes 13/06/2014 de 17:30 a 21:30 hs\r\nSábado 14/06/2014 de 08:00 a 14:00 hs\r\n','Cuerpo de Evacuación y primeros auxilios.\r\n','2014-05-06 16:14:07','2014-05-16 15:08:36',1,8,14,'\"Primeros Auxilios Básicos y Socorrismo\"',4,' Complejo de Escuelas Especiales',0),(37,NULL,NULL,'La propuesta tiene como finalidad alcanzar los siguientes objetivos: \r\n-Comprender el enfoque de atención a la diversidad y los principios que sustentan la inclusión educativa.\r\n-Enriquecer las prácticas docentes e institucionales bajo los criterios que caracterizan una escuela inclusiva.\r\n\r\n','Docentes de Nivel Inicial, primario, modalidades de educación especial y educación hospitalaria.\r\n','44','16','3529/13',58,'Durante el mes de mayo los días 17, 24 y 31 y durante el mes de junio los dias 7, 14, 21 y 24 de junio. Los horarios en los que se dictaran los cursos serán de 9:00 a 13:00 horas.\r\n\r\n','Prof. CODESAL, Stella Agueda, \r\n','2014-05-06 16:42:58','2014-05-21 12:52:26',1,8,14,'\"La Escuela inclusiva hoy: problemáticas y alternativas\"',5,'Escuela Nº 85',0),(38,NULL,NULL,'\"“Espacio docente para la participación didáctica, se propone dar respuesta a nuestra reflexión, actualización, potenciando nuestro bagaje didáctico-metodológico para compartir y adquirir aprendizaje significativo, que luego volcaremos en el aula, patio, gimnasio, salida o campamentos. El intercambio de experiencias educativas,  y la respectiva socialización mejoran considerablemente la calidad educativa; y favorecer la retroalimentación y autoestima docente profesional,   como así también el clima institucional.”\r\n\r\n','Prof. De educación física, docentes de nivel inicial, primario y especial\r\n','16','','5862/13',58,'9/05/2014: 16.30 acreditación y de 18:00 a 22:00 hs\r\n10/05/2014: de 09:00 a 13:00 hs y de 14:00 a 18:00 hs.\r\n','Lic. Marcelo Claudio Ruiz Díaz\r\n','2014-05-07 12:15:49','2014-05-27 17:01:21',0,8,14,'\"Corporeidad: Espacio Docente para la participación didáctica\"',6,'Sede IDES- Urquiza 359',1),(39,NULL,NULL,'Este proyecto de capacitación apunta a comprender la importancia de la logística protocolar en la organización de eventos.  Además busca que las instituciones escolares y otras organizaciones sociales conozcan, las normas de usos de símbolos patrios y la logística aplicada a la realización de las ceremonias, actos, reuniones y eventos.','Docentes de Nivel Inicial, Primario, Secundario y Terciario.\r\n\r\n','24','10','1500/14',49,'Viernes 23/05/2014 de 17:00 a 20:30 hs, Sábado 24/05/2014 de 09:00 a 13:00 hs, Viernes 06/06/2014 de 17:00 a 20.30 hs,  Sábado 07/06/2014 de 09.00 a 14:00 hs','Prof. Ana María Sousa Joao y Prof. Gustavo Alfredo Marcilla.\r\n','2014-05-12 14:39:41','2014-05-16 16:37:22',1,8,14,'\" Curso Introductorio a la Logística Protocolar y el Ceremonial Aplicado a los Símbolos patrios y la realización de eventos\"',4,'Sede de Escuelas Especiales de Rawson',0),(40,NULL,NULL,'El mencionado  proyecto tiene como finalidad ampliar los marcos perceptivos de la realidad cotidiana. La propuesta intenta iniciar una mirada que contemple una renovación de prácticas docentes, desde un enfoque puesto en la multiplicidad. \r\n\r\n','Docentes de todos los niveles.\r\n','36','24','6065/11',17,'Viernes 30/05/2014 de 17:30 a 21:30,\r\nSábado 31/05/2014 de 8:30 a 16:30,\r\nViernes 06/06/2014 de 17:30 a 21:30, \r\nViernes 07/06/204 de 8:30 a 16:30 hs\r\n','Lic. Marcela Martínez, Prof. Dora Elena Niedwiecki, Lic. Sergio Lesbergueris, Prof. Teresa Punta Ghiglione Rozada.\r\n','2014-05-12 14:42:15','2014-05-27 15:37:17',1,8,14,'\"Pensar la escuela en la Escuela\"',4,'    ESCUELA 7717  Nº 0280-4482771',0),(41,NULL,NULL,'La capacitación en primeros auxilios básicos es una herramienta necesaria para la formación individual en beneficio de la comunidad. \r\nEl objetivo de la misma es la apropiación de conocimiento y herramientas metodológicas  para aplicar en caso de accidentes en la escuela y otras instituciones.\r\n\r\n','Docentes de todos los niveles\r\n','20','10','1643/14',32,'Viernes 23/05/2014 de 17:30 a 21:30\r\nSábado 24/05/2014 de 8:00 a 14:00 hs\r\n','Cuerpo de Evacuación y primeros auxilios.\r\n','2014-05-14 14:34:18','2014-05-16 15:09:10',1,8,14,'\"Primeros Auxilios Básicos y Socorrismo\"',4,' Escuela Nº 100',0),(42,NULL,NULL,'La propuesta consiste en la actualización de la normativa escolar aplicada a situaciones de la vida institucional del ámbito educativo.\r\nSe propone: generar un espacio para la consideración y análisis de la normativa escolar vigente.  Analizar leyes, decretos, resoluciones, disposiciones y circulares, estableciendo su correcta aplicación en cada caso y asumir la responsabilidad de acuerdo a la función que cumple dentro del estamento ministerial.\r\n','Docentes de todos los niveles educativos.','24','6','421/08',48,'28 de mayo,  4, 11, 18 y 25 de junio del 2014, en el horario de 18:00 a 21:00 hs.','Prof. Gerardo Carrranza','2014-05-20 16:07:26','2014-05-27 17:02:21',1,8,14,'Análisis de la Normativa Escolar Vigente',7,'Centro de Formación Profesional Nº 651',0),(43,NULL,NULL,'El taller tendrá como propósito fundamental posibilitar la construcción de un marco conceptual que permita resignificar la presencia de la Literatura en el Nivel Inicial.  Se trata de rescatar el valor del libro como un vínculo entre los distintos actores sociales que conforman el jardín: los niños y niñas, los docentes, los no docentes, las familias.  ','Docentes de nivel inicial y primaria','','','3994/13',54,'Día 5 de Junio de 17:30 a 21:30 hs.\r\nDía 6 de junio de 17:30 a 21:30 hs.\r\nDía 7 de junio de 8:00 a 13:00 hs.\r\n','Magister Margarita Sacks.','2014-05-20 16:21:28','2014-05-20 16:21:28',0,8,14,'Palabras mayores y lectores en el nivel inicial',8,'Jardín Municipal',0),(44,NULL,NULL,'En la escuela se forman conductas y se estimulan comportamientos, tal es el caso del fenómeno de bulling o acoso escolar, se trata de un fenómeno social grave que amerita una acción decidida y urgente.\r\nQuienes cursen la presente propuesta de Capacitación podrán ahondar en la problemática de las violencias en la infancia, en particular lo que respecta al abuso sexual infantil y el acoso escolar desde una perspectiva interdiscursiva.\r\n','Docentes de todos lo Niveles.','28','32','2735/14',1,'Cronograma Instancia Presencial: \r\nViernes 30 de mayo de 17:30 a 20:30, Sábado 31 de mayo de 09:00 a 13:00 hs, Viernes 27 de junio de 17:30  a 20:30, Sábado 31 de junio de 09:00 a 13:00 hs, Viernes 26 de septiembre de 17:30 a 20:30 hs, Sábado 27 de septiembre de 09:00 a 13:00 hs.\r\nCronograma de Instancias Virtuales:\r\nMes de mayo: desde 12 al 29, mes de junio: desde el 09 al 26 de junio, mes de agosto: desde el 4 al 28,  mes de Septiembre: de 8 al 25.','Lic. Gabriel Letaif, Lic. Delia Sobrero, Lic. Córdoba. Lic. Favila Rodríguez y Lic. Ada Fragoza','2014-05-20 17:01:34','2014-05-27 15:38:57',1,8,14,'Diagnóstico y tratamiento escolar de la(s) violencias en la infancia: Abuso sexual y Bullying (acoso) escolar',9,'Universidad Nacional de la Patagonia San Juan Bosco sede Puerto Madryn.',0),(45,NULL,NULL,'Los contenidos sobre los DD.HH. se abordaran desde su génesis histórica y en la forma en que diversos aparatos de represión estatal lo han violado sistemáticamente.   Se propone comprender el proceso de avance de los Derechos Humanos desde un itinerario progresivo en donde los hombres que transitan por la historia son los protagonistas de su realización y de las posibilidades e imposibilidades de su desarrollo.  Favorecer un análisis del Estado y la sociedad nacional argentina y los DD.HH como un proceso de construcción histórica.                     ','Docentes de todos los niveles.','30','','2733/14',48,'27 de mayo, 3, 10, 17 y 24 de junio en el horario de 18:00 a 21:00 hs.','Prof. Gastón Ballesteros.','2014-05-21 12:38:13','2014-05-27 17:03:16',1,8,14,'Historia y Derechos Humanos',7,'Centro de Formación Profesional Nº 651',0);
 /*!40000 ALTER TABLE `cursos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -106,7 +108,7 @@ CREATE TABLE `institucion_oferentes` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,7 +117,7 @@ CREATE TABLE `institucion_oferentes` (
 
 LOCK TABLES `institucion_oferentes` WRITE;
 /*!40000 ALTER TABLE `institucion_oferentes` DISABLE KEYS */;
-INSERT INTO `institucion_oferentes` VALUES (2,'Institución de Prueba','','',1,'',NULL,'','','2014-05-05 16:01:55','2014-05-05 16:01:55');
+INSERT INTO `institucion_oferentes` VALUES (4,'Sindicato de Trabajadores de la Educación (SITRAED) Seccional Rawson','0280-4482771','sitraed_seccionalrawson@yahoo.com.ar',49,'Facundo Quiroga ',410,'','','2014-05-06 13:03:24','2014-05-06 13:03:24'),(5,'Asociación de Trabajadores del Estado (ATE)','0280-4485270-4482722-4481653','capacitacion_ate_@hotmail.com',49,'Don Bosco ',183,'','','2014-05-06 16:41:20','2014-05-06 16:41:20'),(6,'Instituto de Estudios Superiores (IDES)','0280-4429049 ó 0280-4427430','info@idestrelew.edu.ar',58,'Urquiza ',356,'','','2014-05-07 12:12:42','2014-05-07 12:12:42'),(7,'SITRAED (Sindicato de Trabajadores de la Educación)- Seccional Puerto Madryn ','0280-4471593','0280-4471593',1,'Avenida Gales',1166,'','','2014-05-20 15:12:36','2014-05-20 15:12:36'),(8,'Travesías Didácticas','0280-154672962','graguerrero@infovia.com.ar',58,'Belgrano',1654,'','','2014-05-20 16:14:30','2014-05-20 16:14:30'),(9,'Asociación Argentina de Psicología Jurídica y Oferente ','280-4469188','aapjyf@gmail.com',47,'Dlio Prilidiano Pueyrredón ',823,'','','2014-05-20 16:26:07','2014-05-20 16:26:07');
 /*!40000 ALTER TABLE `institucion_oferentes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -188,7 +190,7 @@ CREATE TABLE `persona_cursos` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -197,6 +199,7 @@ CREATE TABLE `persona_cursos` (
 
 LOCK TABLES `persona_cursos` WRITE;
 /*!40000 ALTER TABLE `persona_cursos` DISABLE KEYS */;
+INSERT INTO `persona_cursos` VALUES (1,45,36,NULL,'2014-05-15 17:59:48','2014-05-15 17:59:48'),(2,46,39,NULL,'2014-05-16 00:42:15','2014-05-16 00:42:15'),(3,46,37,NULL,'2014-05-16 00:45:00','2014-05-16 00:45:00'),(4,47,36,NULL,'2014-05-16 03:21:12','2014-05-16 03:21:12'),(5,47,39,NULL,'2014-05-16 03:30:34','2014-05-16 03:30:34'),(6,48,36,NULL,'2014-05-16 09:48:18','2014-05-16 09:48:18'),(7,48,39,NULL,'2014-05-16 09:50:31','2014-05-16 09:50:31'),(8,49,39,NULL,'2014-05-16 12:28:04','2014-05-16 12:28:04'),(9,49,37,NULL,'2014-05-16 12:28:42','2014-05-16 12:28:42'),(10,50,36,NULL,'2014-05-16 19:09:46','2014-05-16 19:09:46'),(11,51,36,NULL,'2014-05-18 02:59:36','2014-05-18 02:59:36'),(12,52,36,NULL,'2014-05-19 09:55:19','2014-05-19 09:55:19'),(13,53,36,NULL,'2014-05-19 13:32:49','2014-05-19 13:32:49'),(14,53,39,NULL,'2014-05-19 15:06:37','2014-05-19 15:06:37'),(15,54,36,NULL,'2014-05-20 13:52:52','2014-05-20 13:52:52'),(16,54,39,NULL,'2014-05-20 13:59:47','2014-05-20 13:59:47'),(17,55,39,NULL,'2014-05-20 17:32:55','2014-05-20 17:32:55'),(18,56,41,NULL,'2014-05-21 01:32:10','2014-05-21 01:32:10'),(19,57,36,NULL,'2014-05-21 04:59:44','2014-05-21 04:59:44'),(20,57,39,NULL,'2014-05-21 05:02:39','2014-05-21 05:02:39'),(21,58,36,NULL,'2014-05-21 17:00:29','2014-05-21 17:00:29'),(22,55,36,NULL,'2014-05-21 18:01:02','2014-05-21 18:01:02'),(23,59,36,NULL,'2014-05-21 22:12:37','2014-05-21 22:12:37'),(24,59,39,NULL,'2014-05-21 22:17:06','2014-05-21 22:17:06'),(25,60,37,NULL,'2014-05-22 01:35:07','2014-05-22 01:35:07'),(26,61,41,NULL,'2014-05-22 15:28:19','2014-05-22 15:28:19'),(27,62,41,NULL,'2014-05-22 15:44:59','2014-05-22 15:44:59'),(28,63,41,NULL,'2014-05-22 15:49:13','2014-05-22 15:49:13'),(29,64,36,NULL,'2014-05-23 10:39:19','2014-05-23 10:39:19'),(30,64,40,NULL,'2014-05-23 10:41:51','2014-05-23 10:41:51'),(31,65,36,NULL,'2014-05-24 20:56:48','2014-05-24 20:56:48'),(32,66,37,NULL,'2014-05-27 01:20:54','2014-05-27 01:20:54'),(33,67,44,NULL,'2014-05-27 19:58:42','2014-05-27 19:58:42'),(34,68,40,NULL,'2014-05-28 02:04:43','2014-05-28 02:04:43'),(35,68,45,NULL,'2014-05-28 02:10:07','2014-05-28 02:10:07');
 /*!40000 ALTER TABLE `persona_cursos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -225,8 +228,9 @@ CREATE TABLE `personas` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `nro_documento` int(11) DEFAULT NULL,
+  `becado` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -235,6 +239,7 @@ CREATE TABLE `personas` (
 
 LOCK TABLES `personas` WRITE;
 /*!40000 ALTER TABLE `personas` DISABLE KEYS */;
+INSERT INTO `personas` VALUES (46,'ZUÑIGA, DIANA LETICIA',2,'1977-08-05',3,2,'PROFESOR DE 1°Y 2° CICLO DE LA E.G.B',2820,'TODOS','0003-08-09',17,'leticia-zuniga@hotmail.com','297154745237','4535381','2014-05-16 00:42:15','2014-05-16 00:42:15',25962472,NULL),(47,'GORDILLO ALVARO ENRIQUE',2,'1982-02-10',1,3,'',3430,'OPERACIÓN DE LAS COMPRAS Y VENTAS',NULL,23,'alvaroenriquegordillo@yahoo.com.ar','0280154310203','4492006','2014-05-16 03:21:12','2014-05-16 03:21:12',29085206,NULL),(48,'Aranea Ricardo Daniel',2,'1978-03-14',1,3,'Analista Programador Universitario',3196,'introducción a la programación','2014-04-29',49,'rickaranea@yahoo.com.ar','2804496304','2804633039','2014-05-16 09:48:18','2014-05-16 09:48:18',26544150,NULL),(49,'YARBE KAREN VANESA',2,'1984-10-08',1,1,'CONTADOR PUBLICO NACIONAL',3574,'TECNICA Y PRACTICA CONTABLE','2013-05-27',58,'karenyarbe@hotmail.com','2804301811','','2014-05-16 12:28:04','2014-05-16 12:28:04',31183368,NULL),(50,'Hernandez Luis Enrique',2,'1965-11-02',3,2,'Maestro Normal Superior',2979,'Prácticas del Lenguaje y Cs. Soc.','2012-03-20',48,'luishernandez@chubuteduca.com.ar','154354448','4471593','2014-05-16 19:09:46','2014-05-16 19:09:46',17709302,NULL),(51,'ZAPANA MONICA LILIANA',2,NULL,1,2,'PROFESOR PARA LA ENSEÑANZA PRIMARIA',2787,'LENGUA','2014-03-05',57,'moly_chujuy@hotmail.com.ar','2804514700','2804499344','2014-05-18 02:59:36','2014-05-18 02:59:36',25076719,NULL),(52,'muzzio walter',2,'1975-09-06',3,2,'Profesor de Educación Técnico Profesional',3174,'Taller','2012-04-16',17,'walter_muzzio@yahoo.com.ar','0297156218767','','2014-05-19 09:55:19','2014-05-19 09:55:19',24778069,NULL),(53,'Villar Silvia Beatriz',2,'1957-12-18',1,2,'Profesora de Enseñanza Primaria',2867,'Directora del establecimiento','2013-02-13',54,'silviabv2003@yahoo.com.ar  / o / escuelahyd307@gmail.com','0294-154612065','0297-4898351','2014-05-19 13:32:49','2014-05-19 13:32:49',13,NULL),(54,'LOLO BLANCA ESTELA',2,'1967-01-24',3,2,'prof. para la Enseñanza Primaria',2828,'todos','1994-03-07',1,'blancaestelalolo@gmail.com','280-154660690','4451276','2014-05-20 13:52:52','2014-05-20 13:52:52',18087231,NULL),(55,'Puchatt Jorgelina Paola',2,'1982-04-07',2,1,'Técnico Superior en Bibliotecología',2787,'',NULL,49,'puchattjorgelina@gmail.com','0280-154535449','','2014-05-20 17:32:55','2014-05-20 17:32:55',29359316,NULL),(56,'Donato Herrera Paola Soledad',2,'1986-02-27',2,2,'Profesorado para 1° y 2° ciclo de EGB',2791,'',NULL,58,'poladonatto@hotmail.com','0280-154578676','','2014-05-21 01:32:10','2014-05-21 01:32:10',32219960,NULL),(57,'zarate Natalia',2,'1982-04-20',1,2,'prof de nivel inicial y maternal',3476,'',NULL,58,'nataliazarate82@hotmail.com','154535008','4433735','2014-05-21 04:59:44','2014-05-21 04:59:44',29493570,NULL),(58,'Calfuquir Cristina Liliana',2,'1980-05-22',1,3,'Técnico Superior en Bibliotecología',2973,'',NULL,49,'lilianalibrarian@gmail.com','2804728638','4481816','2014-05-21 17:00:29','2014-05-21 17:00:29',28055153,NULL),(59,'Suárez  Marcela  Elizabeth',2,'1986-12-23',1,2,'Profesora  de Educación  Especial  de  discapidad  visual',2915,'Maestra de apoyo a la inclusion',NULL,48,'marce23_sua@hotmail.com','154619156','4456803','2014-05-21 22:12:37','2014-05-21 22:12:37',32801438,NULL),(60,'Colil, Mariana Virginia',2,'1975-09-19',2,2,'Profesora de EGB1 y2',2787,'',NULL,48,'viyinac@hotmail.com','280 4474267','280 4453508','2014-05-22 01:35:07','2014-05-22 01:35:07',24562513,NULL),(61,'Oscar Alfredo Sanzana',2,'1963-10-18',1,2,'Prof. Nacional de Educación Física',2847,'Educación Física','1990-03-13',32,'profekater@gmail.com','02804491183','0280154662420','2014-05-22 15:28:19','2014-05-22 15:28:19',16460824,NULL),(62,'Giovanelli, Geraldina Elena',2,'1974-05-15',2,3,'',3442,'Precptora','2011-10-01',32,'geraldina-g@hotmail.com','0280154567598','02804491414','2014-05-22 15:44:59','2014-05-22 15:44:59',24379561,NULL),(63,'Evans, Norma Viviana',2,'1969-09-15',3,1,'Prof. para la Enseñanza Primaria',3442,'','2004-03-10',32,'vivanaevans15@hotmail.com','0280154681857','02804491414','2014-05-22 15:49:13','2014-05-22 15:49:13',26758190,NULL),(64,'Luna Cecilia',2,'1974-03-05',3,2,'',2924,'',NULL,58,'cecylunatw@gmail.com','280154362053','2804421115','2014-05-23 10:39:19','2014-05-23 10:39:19',23791324,NULL),(65,'Salas, Gabriela',2,'2014-05-25',1,2,'Prof. Biología en EGB3 Y Polimodal',3492,'BIOLOGÍA','2012-04-09',48,'crisde_22@hotmail.com','2804511749','4450084','2014-05-24 20:56:48','2014-05-24 20:56:48',31765701,NULL),(66,'wahler carla andrea',2,'1973-05-04',2,2,'profesora de Nivel inicial',2787,'todas los campos de experiencia',NULL,58,'carlawahler@hotmail.com.ar','2804405655','2804428567','2014-05-27 01:20:54','2014-05-27 01:20:54',23374122,NULL),(67,'Ramos Patricia Alejandra',2,'1982-07-06',1,2,'Profesora de Química',3179,'ciencias naturales- fisico quimica','2012-02-20',58,'patriciaalejandraramos@yahoo.com.ar','2804823038','','2014-05-27 19:58:42','2014-05-27 19:58:42',29553669,NULL),(68,'FUENTE JOSEFA LILIÀN',2,'1973-02-01',3,2,'PROFESORA DE EGB 1 Y 2',3495,'',NULL,54,'jose_1701@hotmail.com','2974204109','2974898701','2014-05-28 02:04:42','2014-05-28 02:04:42',23165522,NULL);
 /*!40000 ALTER TABLE `personas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -362,7 +367,7 @@ CREATE TABLE `schema_migrations` (
 
 LOCK TABLES `schema_migrations` WRITE;
 /*!40000 ALTER TABLE `schema_migrations` DISABLE KEYS */;
-INSERT INTO `schema_migrations` VALUES ('20120201182115'),('20120224180650'),('20120224181028'),('20120302182538'),('20120410182942'),('20140422121326'),('20140422130340'),('20140422130344'),('20140422130347'),('20140422130350'),('20140422130354'),('20140422130357'),('20140422130401'),('20140422130418'),('20140422131922'),('20140422133329'),('20140422154023'),('20140423134607'),('20140424160845'),('20140424161227'),('20140425113701');
+INSERT INTO `schema_migrations` VALUES ('20120201182115'),('20120224180650'),('20120224181028'),('20120302182538'),('20120410182942'),('20140422121326'),('20140422130340'),('20140422130344'),('20140422130347'),('20140422130350'),('20140422130354'),('20140422130357'),('20140422130401'),('20140422130418'),('20140422131922'),('20140422133329'),('20140422154023'),('20140423134607'),('20140424160845'),('20140424161227'),('20140425113701'),('20140506154524'),('20140516122132'),('20140521121531');
 /*!40000 ALTER TABLE `schema_migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -497,7 +502,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_users_on_email` (`email`),
   UNIQUE KEY `index_users_on_reset_password_token` (`reset_password_token`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -506,7 +511,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'pelly87@hotmail.com','$2a$10$aQn/Si5iSCY9XmAIuLETA.QE1p3nxLhq.jl9vn.wsQk2uKux1oQq2',NULL,NULL,NULL,3,'2014-05-05 15:49:00','2014-04-28 16:20:22','127.0.0.1','127.0.0.1','2014-04-28 12:28:20','2014-05-05 15:49:00','Marcelo','González'),(2,'becas@gmail.com','$2a$10$hVKtIcwlMnYsMkPUwUvrKOsZtvaNzySCZboPFkygkRsPT1e0mfM.e',NULL,NULL,NULL,3,'2014-05-05 16:03:55','2014-04-28 13:00:37','127.0.0.1','127.0.0.1','2014-04-28 12:59:22','2014-05-05 16:03:55','Becas','Becas');
+INSERT INTO `users` VALUES (1,'pelly87@hotmail.com','$2a$10$aQn/Si5iSCY9XmAIuLETA.QE1p3nxLhq.jl9vn.wsQk2uKux1oQq2',NULL,NULL,NULL,10,'2014-05-27 15:22:50','2014-05-21 13:08:14','200.70.33.231','200.70.33.231','2014-04-28 12:28:20','2014-05-27 15:22:50','Marcelo','González'),(2,'becas@gmail.com','$2a$10$hVKtIcwlMnYsMkPUwUvrKOsZtvaNzySCZboPFkygkRsPT1e0mfM.e',NULL,NULL,NULL,21,'2014-05-27 15:29:17','2014-05-21 12:18:26','200.70.33.226','200.70.33.226','2014-04-28 12:59:22','2014-05-27 15:29:17','Becas','Becas'),(3,'lilianalibrarian@gmail.com','$2a$10$OVIIq9qMWm5R6OuAkv8jLuhTsV3LoI6UxOTwUzxmALgSGwJcgPxzi',NULL,NULL,NULL,1,'2014-05-21 16:56:09','2014-05-21 16:56:09','200.70.33.226','200.70.33.226','2014-05-21 16:56:09','2014-05-21 16:56:09','Cristina Liliana','Calfuquir|');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -519,4 +524,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-05-05 13:07:31
+-- Dump completed on 2014-05-28  8:40:37
