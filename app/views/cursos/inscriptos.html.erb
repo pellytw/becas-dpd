@@ -1,4 +1,4 @@
-<h1>Listado de Inscriptos</h1>
+<h1>Listado de Inscriptos - <%= Curso.find(params["idCurso"]).nombre %></h1>
 
 <input type="text" name="idCurso" value="<%=@idCurso%>" class="hidden">
 
@@ -43,7 +43,8 @@
     <td><%= persona.espacio_curricular %></td>
     <td><%= persona.localidad %></td>
     <td>
-      <% if persona.becado == true then %>
+      <% @persona_curso = PersonaCurso.where(:persona_id => persona.id, :curso_id => params["idCurso"]).first %>
+      <% if @persona_curso.becado == true then %>
         Si
       <% else %>
         No
@@ -58,7 +59,7 @@
         <ul class="dropdown-menu">
           <li><%= link_to 'Ver', persona %></li>
           <li><%= link_to 'Editar', edit_persona_path(persona) %></li>
-          <% if persona.becado then %> 
+          <% if @persona_curso.becado then %> 
             <li><a href="/soft/becas-dpd/personas/becar/<%=persona.id%>/<%=params["idCurso"]%>" data-confirm="¿Seguro desea anular la beca de esta persona?">Anular Beca</a></li>
           <% else %>
             <li><a href="/soft/becas-dpd/personas/becar/<%=persona.id%>/<%=params["idCurso"]%>" data-confirm="¿Seguro desea becar a esta persona?">Becar</a></li>        

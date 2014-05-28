@@ -37,7 +37,9 @@
     <div class="span12">
       <h4 style="margin-top:20px;margin-bottom:20px;text-align:center;"><%= @curso.nombre %></h4>
     </div>
-  </div>  
+  </div>
+
+  <legend>Datos de la Institución Oferente</legend>  
 
   <div class="row">
     <div class="span6">
@@ -49,6 +51,76 @@
       </div>
     </div>
   </div>
+
+   <div class="row">
+    <div class="span12">
+      <div class="control-group info">
+        <label class="control-label"><strong>Teléfono de contacto:</strong></label>
+        <div class="controls">
+          <%= @curso.institucion_oferente.telefono %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="span12">
+      <div class="control-group info">
+        <label class="control-label"><strong>Correo electrónico:</strong></label>
+        <div class="controls">
+           <%= @curso.institucion_oferente.email %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="span3">
+      <div class="control-group info">
+        <label class="control-label"><strong>Calle:</strong></label>
+        <div class="controls">
+          <%= @curso.institucion_oferente.calle %>
+        </div>
+      </div>
+    </div>
+    <div class="span3">
+      <div class="control-group info">
+        <label class="control-label"><strong>Nro:</strong></label>
+        <div class="controls">
+           <%= @curso.institucion_oferente.nro_calle %>
+        </div>
+      </div>
+    </div>
+    <div class="span2">
+      <div class="control-group info">
+        <label class="control-label"><strong>Piso:</strong></label>
+        <div class="controls">
+          <%= @curso.institucion_oferente.piso %>
+        </div>
+      </div>
+    </div>
+    <div class="span2">
+      <div class="control-group info">
+        <label class="control-label"><strong>Depto:</strong></label>
+        <div class="controls">
+           <%= @curso.institucion_oferente.depto %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="span12">
+      <div class="control-group info">
+        <label class="control-label"><strong>Localidad:</strong></label>
+        <div class="controls">
+          <%= @curso.institucion_oferente.localidad %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <legend>Datos del Curso</legend>  
 
   <div class="row">
     <div class="span12">
@@ -136,75 +208,7 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="row">
-    <div class="span12">
-      <div class="control-group info">
-        <label class="control-label"><strong>Teléfono de contacto:</strong></label>
-        <div class="controls">
-          <%= @curso.institucion_oferente.telefono %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="span12">
-      <div class="control-group info">
-        <label class="control-label"><strong>Correo electrónico:</strong></label>
-        <div class="controls">
-           <%= @curso.institucion_oferente.email %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="span3">
-      <div class="control-group info">
-        <label class="control-label"><strong>Calle:</strong></label>
-        <div class="controls">
-          <%= @curso.institucion_oferente.calle %>
-        </div>
-      </div>
-    </div>
-    <div class="span3">
-      <div class="control-group info">
-        <label class="control-label"><strong>Nro:</strong></label>
-        <div class="controls">
-           <%= @curso.institucion_oferente.nro_calle %>
-        </div>
-      </div>
-    </div>
-    <div class="span2">
-      <div class="control-group info">
-        <label class="control-label"><strong>Piso:</strong></label>
-        <div class="controls">
-          <%= @curso.institucion_oferente.piso %>
-        </div>
-      </div>
-    </div>
-    <div class="span2">
-      <div class="control-group info">
-        <label class="control-label"><strong>Depto:</strong></label>
-        <div class="controls">
-           <%= @curso.institucion_oferente.depto %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="span12">
-      <div class="control-group info">
-        <label class="control-label"><strong>Localidad:</strong></label>
-        <div class="controls">
-          <%= @curso.localidad_id %>
-        </div>
-      </div>
-    </div>
-  </div>
+  </div> 
 
   <div class="row">
     <div class="span12">

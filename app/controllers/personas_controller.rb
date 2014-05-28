@@ -171,13 +171,13 @@ class PersonasController < ApplicationController
   end
 
   def becar
-    @persona = Persona.find(params[:idPersona])
-    if @persona.becado then
-      @persona.becado = false
+    @persona_curso = PersonaCurso.where(:persona_id => params[:idPersona], :curso_id => params[:idCurso]).first
+    if @persona_curso.becado then
+      @persona_curso.becado = false
     else
-      @persona.becado = true
+      @persona_curso.becado = true
     end
-    if @persona.save then
+    if @persona_curso.save then
       redirect_to "/soft/becas-dpd/cursos/inscriptos?idCurso=" + params["idCurso"]
     end
   end
