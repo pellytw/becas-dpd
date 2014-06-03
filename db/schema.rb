@@ -59,9 +59,16 @@ ActiveRecord::Schema.define(:version => 20140528153845) do
     t.datetime "updated_at",          :null => false
   end
 
-  create_table "localidads", :force => true do |t|
-    t.string   "nombre"
+  create_table "localidades", :force => true do |t|
     t.integer  "region_id"
+    t.string   "nombre"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "localidads", :force => true do |t|
+    t.integer  "region_id"
+    t.string   "nombre"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
