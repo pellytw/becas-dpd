@@ -64,8 +64,7 @@
           <% else %>
             <li><a href="/soft/becas-dpd/personas/becar/<%=persona.id%>/<%=params["idCurso"]%>" data-confirm="¿Seguro desea becar a esta persona?">Becar</a></li>        
           <% end %>
-          <li><%= link_to 'Eliminar', persona, method: :delete, data: { confirm: 'Seguro desea eliminar?' } %></li>
-          </li>
+          <li><a href="/soft/becas-dpd/personas/eliminar_inscripcion/<%=persona.id%>/<%=params["idCurso"]%>" data-confirm="¿Seguro desea eliminar la inscripción?">Eliminar Inscripción</a></li>
         </ul>
       </div>
     </td>
