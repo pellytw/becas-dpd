@@ -74,7 +74,8 @@ class PersonasController < ApplicationController
             end
           else
             respond_to do |format|
-              if @persona.save
+              debugger
+              if @persona.update_attributes(params[:persona])
                 @persona_curso = PersonaCurso.create(:persona_id => @persona.id, :curso_id => @curso.id)
                 @persona_curso.save
                 format.html { redirect_to @persona, notice: 'Persona se ha creado correctamente.' }
