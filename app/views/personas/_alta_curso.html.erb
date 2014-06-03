@@ -307,7 +307,6 @@
           return;
         };
         if (data != "No se encontro"){
-          $(":input","fieldset").val('');
           $("#formulario").removeClass('hidden');
           $("#persona_nro_documento").val(data.nro_documento).prop('disabled', true);
           $("#persona_apellidos_y_nombres").val(data.apellidos_y_nombres);
@@ -321,9 +320,9 @@
           $("#persona_tel_laboral").val(data.tel_laboral);
           $("#persona_institucion").val(data.institucion);
           $("#persona_porcentaje_carrera").val(data.porcentaje_carrera);
+          $("#persona_carrera").val(data.carrera);
           $("#buscar_doc").addClass('hidden');
         }else{
-          $(":input","fieldset").val('');
           $("#formulario").removeClass('hidden');
           $("#persona_nro_documento").val(nro_doc).prop('disabled', true);
         }
