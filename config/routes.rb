@@ -20,6 +20,8 @@ Mysecurity::Application.routes.draw do
 
   match 'personas/becar/:idPersona/:idCurso' => 'personas#becar'
 
+  match 'personas/eliminar_inscripcion/:idPersona/:idCurso' => 'personas#eliminar_inscripcion'
+
   resources :cursos
 
   resources :personas

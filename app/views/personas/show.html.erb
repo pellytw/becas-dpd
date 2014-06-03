@@ -17,35 +17,7 @@
   <%= @persona.fecha_nacimiento %>
 </p>
 
-<p>
-  <b>Situacion revista:</b>
-  <%= @persona.situacion_revista_id %>
-</p>
 
-<p>
-  <b>Titulo:</b>
-  <%= @persona.titulo_id %>
-</p>
-
-<p>
-  <b>Nombre titulo:</b>
-  <%= @persona.nombre_titulo %>
-</p>
-
-<p>
-  <b>Escuela:</b>
-  <%= @persona.escuela_id %>
-</p>
-
-<p>
-  <b>Espacio curricular:</b>
-  <%= @persona.espacio_curricular %>
-</p>
-
-<p>
-  <b>Fecha alta espacio curr:</b>
-  <%= @persona.fecha_alta_espacio_curr %>
-</p>
 
 <p>
   <b>Localidad:</b>
@@ -63,9 +35,55 @@
 </p>
 
 <p>
-  <b>Tel laboral:</b>
-  <%= @persona.tel_laboral %>
+  <b>Situación:</b>
+  <%= @persona.estado %>
 </p>
+
+<% if (@persona.estado == "Estudiante Superior") || (@persona.estado == "Estudiante Universitario") then %>
+  <p>
+    <b>Institución:</b>
+    <%= @persona.institucion %>
+  </p>
+  <p>
+    <b>Carrera:</b>
+    <%= @persona.carrera %>
+  </p>
+  <p>
+    <b>Porcentaje de la Carrera:</b>
+    <%= @persona.porcentaje_carrera %>
+  </p>
+<% else %>
+  <p>
+    <b>Situacion revista:</b>
+    <%= @persona.situacion_revista_id %>
+  </p>
+
+  <p>
+    <b>Titulo:</b>
+    <%= @persona.titulo_id %>
+  </p>
+
+  <p>
+    <b>Nombre titulo:</b>
+    <%= @persona.nombre_titulo %>
+  </p>
+
+  <p>
+    <b>Escuela:</b>
+    <%= @persona.escuela_id %>
+  </p>
+
+  <p>
+    <b>Espacio curricular:</b>
+    <%= @persona.espacio_curricular %>
+  </p>
+
+  <p>
+    <b>Fecha alta espacio curr:</b>
+    <%= @persona.fecha_alta_espacio_curr %>
+  </p>
+<% end %>
+
 
 
 <%= link_to 'Editar', edit_persona_path(@persona) %> |

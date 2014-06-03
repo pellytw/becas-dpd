@@ -87,11 +87,21 @@ class PersonasController < ApplicationController
           end
         end
       else
-        #no se puede inscribir
+        @persona = @persona_aux
         respond_to do |format|
-          format.html { redirect_to "/soft/becas-dpd/cursos/cursos_disponibles", alert: 'Usted ya esta inscripto en ese curso.' }
-          format.json { head :no_content }
+          if @persona.save
+            format.html { redirect_to "/soft/becas-dpd/cursos/cursos_disponibles", alert: 'Usted ya esta inscripto en ese curso.' }
+            format.json { head :no_content }
+          else          
+            format.html { render  "new" }
+            format.json { render json: @persona.errors, status: :unprocessable_entity }               
+          end
         end
+        #no se puede inscribir
+        #respond_to do |format|
+        #  format.html { redirect_to "/soft/becas-dpd/cursos/cursos_disponibles", alert: 'Usted ya esta inscripto en ese curso.' }
+        #  format.json { head :no_content }
+        #end
       end
     #no existe la persona
     else
@@ -151,9 +161,17 @@ class PersonasController < ApplicationController
 
   def existe_persona
     @resultado = Persona.where(:nro_documento => params[:nro_doc]).first
+    # Se encuentra la persona
     if @resultado
-      #render :text => "Se encontro"
-      render json: @resultado
+      @persona_curso = PersonaCurso.where(:persona_id => @resultado.id, :curso_id => params[:idCurso]).first
+      # La persona ya se encuentra en el curso
+      if @persona_curso
+        render :text => "Ya se encuentra inscripto en este curso"
+      # La persona no esta inscripta en el curso
+      else
+        render json: @resultado
+      end
+    # No se encuentra la persona
     else
       render :text => "No se encontro"
     end
@@ -178,6 +196,13 @@ class PersonasController < ApplicationController
       @persona_curso.becado = true
     end
     if @persona_curso.save then
+      redirect_to "/soft/becas-dpd/cursos/inscriptos?idCurso=" + params["idCurso"]
+    end
+  end
+
+  def eliminar_inscripcion
+    @persona_curso = PersonaCurso.where(:persona_id => params[:idPersona], :curso_id => params[:idCurso]).first
+    if @persona_curso.destroy then
       redirect_to "/soft/becas-dpd/cursos/inscriptos?idCurso=" + params["idCurso"]
     end
   end

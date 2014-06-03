@@ -36,230 +36,318 @@
 
 
   <div id="formulario">
-  <div class="row">
-    <div class="span12" style="margin-top:20px;margin-bottom:20px;">
-      <span class="label label-info"><h4>Datos personales</h4></span>
+    <fieldset id="datos-personales">
+      <legend>Datos Personales</legend>
+      <div class="row">
+        <div class="span12">
+          <div class="control-group success">
+            <label class="control-label"><strong>Apellidos y nombres:</strong></label>
+            <div class="controls">
+              <%= f.text_field :apellidos_y_nombres, :style => "width:100%;" %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="span6">
+          <div class="control-group success">
+            <label class="control-label"><strong>Tipo de documento:</strong></label>
+            <div class="controls">
+              <%= f.collection_select(:tipo_documento_id, TipoDocumento.all, :id, :nombre) %>
+            </div>
+          </div>
+        </div>
+        <div class="span6">
+          <div class="control-group success">
+            <label class="control-label"><strong>Número de documento:</strong></label>
+            <div class="controls">
+              <%= f.text_field :nro_documento %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="span6">
+          <div class="control-group success">
+            <label class="control-label"><strong>Fecha de nacimiento:</strong></label>
+            <div class="controls">
+              <%= f.datepicker :fecha_nacimiento, :id => "datepicker" %>
+            </div>
+          </div>
+        </div>
+        <div class="span6">
+          <div class="control-group success">
+            <label class="control-label"><strong>Localidad:</strong></label>
+            <div class="controls">
+              <%= f.collection_select(:localidad_id, Localidad.all, :id, :nombre) %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="span12">
+          <div class="control-group success">
+            <label class="control-label"><strong>Correo electrónico:</strong></label>
+            <div class="controls">
+              <%= f.text_field :email, :style => "width:100%;" %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="span6">
+          <div class="control-group success">
+            <label class="control-label"><strong>Teléfono particular:</strong></label>
+            <div class="controls">
+              <%= f.text_field :tel_particular %>
+            </div>
+          </div>
+        </div>
+        <div class="span6">
+          <div class="control-group success">
+            <label class="control-label"><strong>Teléfono laboral:</strong></label>
+            <div class="controls">
+              <%= f.text_field :tel_laboral %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <legend>Situación Actual</legend>
+    <div class="row">
+      <div class="span12">
+        <div class="control-group success">
+          <label class="control-label"><strong>Seleccione una opción</strong></label>
+          <div class="controls">
+            <select name="persona[estado]" id="estado" class="form-control">
+              <option value="0">--</option>
+              <% if @persona.estado == "Estudiante Superior" %>
+                <option selected="selected" value="Estudiante Superior">Estudiante Superior</option>
+              <% else %>
+                <option value="Estudiante Superior">Estudiante Superior</option>
+              <% end %>
+              <% if @persona.estado == "Estudiante Universitario" %>
+                <option selected="selected" value="Estudiante Universitario">Estudiante Universitario</option>
+              <% else %>
+                <option value="Estudiante Universitario">Estudiante Universitario</option>
+              <% end %>
+              <% if @persona.estado == "Docente" %>
+                <option selected="selected" value="Docente">Docente</option>
+              <% else %>
+                <option value="Docente">Docente</option>
+              <% end %>  
+            </select>
+          </div>
+        </div>
+      </div>
     </div>
+    
+    <fieldset id="datos-docente">
+      <legend>Datos del Docente</legend>
+      <div class="row">
+        <div class="span6">
+          <div class="control-group success">
+            <label class="control-label"><strong>Título:</strong></label>
+            <div class="controls">
+              <%= f.collection_select(:titulo_id, Titulo.all, :id, :nombre) %>
+            </div>
+          </div>
+        </div>
+        <div class="span6">
+          <div class="control-group success">
+            <label class="control-label"><strong>Nombre del título:</strong></label>
+            <div class="controls">
+              <%= f.text_field :nombre_titulo %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="span6">
+          <div class="control-group success">
+            <label class="control-label"><strong>Escuela:</strong></label>
+            <div class="controls">
+              <%= f.collection_select(:escuela_id, Escuela.all, :id, :nombre) %>
+            </div>
+          </div>
+        </div>
+        <div class="span6">
+          <div class="control-group success">
+            <label class="control-label"><strong>Situación de revista:</strong></label>
+            <div class="controls">
+              <%= f.collection_select(:situacion_revista_id, SituacionRevistum.all, :id, :nombre) %>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="span6">
+          <div class="control-group success">
+            <label class="control-label"><strong>Espacio curricular:</strong></label>
+            <div class="controls">
+              <%= f.text_field :espacio_curricular %>
+            </div>
+          </div>
+        </div>
+        <div class="span6">
+          <div class="control-group success">
+            <label class="control-label"><strong>Fecha de alta en espacio curricular:</strong></label>
+            <div class="controls">
+              <%= f.datepicker :fecha_alta_espacio_curr, :id => "datepicker2" %>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </fieldset>
+
+    <fieldset id="datos-estudiante">
+      <legend>Datos del Estudiante</legend>
+      <div class="row">
+        <div class="span12">
+          <div class="control-group success">
+            <label class="control-label"><strong>Institución:</strong></label>
+            <div class="controls">
+              <%= f.text_field :institucion %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12">
+          <div class="control-group success">
+            <label class="control-label"><strong>Carrera:</strong></label>
+            <div class="controls">
+              <%= f.text_field :carrera %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span12">
+          <div class="control-group success">
+            <label class="control-label"><strong>Porcentaje de la Carrera:</strong></label>
+            <div class="controls">
+              <%= f.text_field :porcentaje_carrera %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+
+    <% @listado_de_datepickers = ['datepicker', 'datepicker2'] %>
+
+    <% @listado_de_datepickers.each do |l| %>
+
+        <script type="text/javascript">
+            
+              $("#<%=l%>").datepicker({dateFormat:"dd-mm-yy",
+              dayNamesMin: ["Do", "Lu", "Ma", "Mie", "Jue", "Vie", "Sa"],
+              changeYear: true,
+              yearRange: "1910:<%= Date.today.year + 10 %>", 
+              monthNames: ["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"], 
+              monthNamesShort: ["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"], 
+              navigationAsDateFormat: true,
+              nextText: "Sig", 
+              prevText: "Ant", 
+              showAnim: "explode"
+                });
+
+        </script>
+
+    <% end %>
+
+    <% @idCurso = params["idCurso"] %>
+
+    <input type="text" id="idCurso" name="idCurso" value="<%=@idCurso%>" class="hidden">
+
+    <div class="actions" align="center">
+      <%= f.submit :value => "Guardar", :class => "btn btn-primary", data: { confirm: '¿Confirma sus datos personales?' }%>
+    </div>
+
+    <hr/>
+
   </div>
-  <hr/>
-
-  <div class="row">
-    <div class="span12">
-      <div class="control-group success">
-        <label class="control-label"><strong>Apellidos y nombres:</strong></label>
-        <div class="controls">
-          <%= f.text_field :apellidos_y_nombres, :style => "width:100%;" %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="span6">
-      <div class="control-group success">
-        <label class="control-label"><strong>Tipo de documento:</strong></label>
-        <div class="controls">
-          <%= f.collection_select(:tipo_documento_id, TipoDocumento.all, :id, :nombre) %>
-        </div>
-      </div>
-    </div>
-    <div class="span6">
-      <div class="control-group success">
-        <label class="control-label"><strong>Número de documento:</strong></label>
-        <div class="controls">
-          <%= f.text_field :nro_documento %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="span6">
-      <div class="control-group success">
-        <label class="control-label"><strong>Fecha de nacimiento:</strong></label>
-        <div class="controls">
-          <%= f.datepicker :fecha_nacimiento, :id => "datepicker" %>
-        </div>
-      </div>
-    </div>
-    <div class="span6">
-      <div class="control-group success">
-        <label class="control-label"><strong>Situación de revista:</strong></label>
-        <div class="controls">
-          <%= f.collection_select(:situacion_revista_id, SituacionRevistum.all, :id, :nombre) %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="span6">
-      <div class="control-group success">
-        <label class="control-label"><strong>Título:</strong></label>
-        <div class="controls">
-          <%= f.collection_select(:titulo_id, Titulo.all, :id, :nombre) %>
-        </div>
-      </div>
-    </div>
-    <div class="span6">
-      <div class="control-group success">
-        <label class="control-label"><strong>Nombre del título:</strong></label>
-        <div class="controls">
-          <%= f.text_field :nombre_titulo %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="span6">
-      <div class="control-group success">
-        <label class="control-label"><strong>Escuela:</strong></label>
-        <div class="controls">
-          <%= f.collection_select(:escuela_id, Escuela.all, :id, :nombre) %>
-        </div>
-      </div>
-    </div>
-    <div class="span6">
-      <div class="control-group success">
-        <label class="control-label"><strong>Localidad:</strong></label>
-        <div class="controls">
-          <%= f.collection_select(:localidad_id, Localidad.all, :id, :nombre) %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="span6">
-      <div class="control-group success">
-        <label class="control-label"><strong>Espacio curricular:</strong></label>
-        <div class="controls">
-          <%= f.text_field :espacio_curricular %>
-        </div>
-      </div>
-    </div>
-    <div class="span6">
-      <div class="control-group success">
-        <label class="control-label"><strong>Fecha de alta en espacio curricular:</strong></label>
-        <div class="controls">
-          <%= f.datepicker :fecha_alta_espacio_curr, :id => "datepicker2" %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="span12">
-      <div class="control-group success">
-        <label class="control-label"><strong>Correo electrónico:</strong></label>
-        <div class="controls">
-          <%= f.text_field :email, :style => "width:100%;" %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="span6">
-      <div class="control-group success">
-        <label class="control-label"><strong>Teléfono particular:</strong></label>
-        <div class="controls">
-          <%= f.text_field :tel_particular %>
-        </div>
-      </div>
-    </div>
-    <div class="span6">
-      <div class="control-group success">
-        <label class="control-label"><strong>Teléfono laboral:</strong></label>
-        <div class="controls">
-          <%= f.text_field :tel_laboral %>
-        </div>
-      </div>
-    </div>
-  </div></br>
-
-<% @listado_de_datepickers = ['datepicker', 'datepicker2'] %>
-
-<% @listado_de_datepickers.each do |l| %>
-
-    <script type="text/javascript">
-        
-          $("#<%=l%>").datepicker({dateFormat:"dd-mm-yy",
-          dayNamesMin: ["Do", "Lu", "Ma", "Mie", "Jue", "Vie", "Sa"],
-          changeYear: true,
-          yearRange: "1910:<%= Date.today.year + 10 %>", 
-          monthNames: ["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"], 
-          monthNamesShort: ["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"], 
-          navigationAsDateFormat: true,
-          nextText: "Sig", 
-          prevText: "Ant", 
-          showAnim: "explode"
-            });
-
-    </script>
-
-<% end %>
-
-
-  <% @idCurso = params["idCurso"] %>
-  <input type="text" name="idCurso" value="<%=@idCurso%>" class="hidden">
-
-
 
   <div class="actions" align="center">
-    <%= f.submit :value => "Enviar Formulario", :class => "btn btn-primary", data: { confirm: '¿Confirma sus datos personales?' }%>
+    <button type="button" onclick="location.href='/soft/becas-dpd/cursos/cursos_disponibles'">Atrás</button>
   </div>
-  
+
 <% end %>
-
-</div>
-
-<hr/>
-
-<div class="actions" align="center">
-  <button type="button" onclick="location.href='/soft/becas-dpd/cursos/cursos_disponibles'">Atrás</button>
-</div>
 
 
 <script type="text/javascript">
   $( document ).ready(function() {
     $("#formulario").addClass('hidden');
+    if ($( "#estado" ).val()==1 ) {
 
+    };
+    $("#datos-docente").addClass('hidden');
+    $("#datos-estudiante").addClass('hidden');
+    
     $("#btn-nro-doc").click(function() {
-       var nro_doc = $("#nro_doc").val(); 
-       $.ajax({
-         url: '/soft/becas-dpd/personas/existe_persona?nro_doc=' + nro_doc,
-         type: 'GET',
-       })
-       .done(function(data) {
-         if (data != "No se encontro"){
-           $("#formulario").removeClass('hidden');
-           $("#persona_nro_documento").val(data.nro_documento).prop('disabled', true);
-           $("#persona_apellidos_y_nombres").val(data.apellidos_y_nombres);
-           $("#persona_tipo_documento").val(data.tipo_documento);
-           $("#datepicker").val(data.fecha_nacimiento);
-           $("#datepicker2").val(data.fecha_alta_espacio_curr);
-           $("#persona_nombre_titulo").val(data.nombre_titulo);
-           $("#persona_espacio_curricular").val(data.espacio_curricular);
-           $("#persona_email").val(data.email);
-           $("#persona_tel_particular").val(data.tel_particular);
-           $("#persona_tel_laboral").val(data.tel_laboral);
-           $("#buscar_doc").addClass('hidden');
-         }else{
+      var nro_doc = $("#nro_doc").val();
+      var idCurso = $("#idCurso").val();
+      
+      $.ajax({
+        url: '/soft/becas-dpd/personas/existe_persona?nro_doc=' + nro_doc + '&idCurso=' + idCurso,
+        type: 'GET',
+      })
+      .done(function(data) {
+        if (data == "Ya se encuentra inscripto en este curso") {
+          alert("La persona con DNI "+$("#nro_doc").val()+" ya se encuentra inscripta en este curso");
+          $("#nro_doc").val('');
+          return;
+        };
+        if (data != "No se encontro"){
+          $(":input","fieldset").val('');
+          $("#formulario").removeClass('hidden');
+          $("#persona_nro_documento").val(data.nro_documento).prop('disabled', true);
+          $("#persona_apellidos_y_nombres").val(data.apellidos_y_nombres);
+          $("#persona_tipo_documento").val(data.tipo_documento);
+          $("#datepicker").val(data.fecha_nacimiento);
+          $("#datepicker2").val(data.fecha_alta_espacio_curr);
+          $("#persona_nombre_titulo").val(data.nombre_titulo);
+          $("#persona_espacio_curricular").val(data.espacio_curricular);
+          $("#persona_email").val(data.email);
+          $("#persona_tel_particular").val(data.tel_particular);
+          $("#persona_tel_laboral").val(data.tel_laboral);
+          $("#persona_institucion").val(data.institucion);
+          $("#persona_porcentaje_carrera").val(data.porcentaje_carrera);
+          $("#buscar_doc").addClass('hidden');
+        }else{
+          $(":input","fieldset").val('');
           $("#formulario").removeClass('hidden');
           $("#persona_nro_documento").val(nro_doc).prop('disabled', true);
-         }
-        
-       })
-       .fail(function() {
-         console.log("error");
-       })
-       .always(function() {
-         console.log("complete");
-       });
-       
+        }
+      })
+      .fail(function() {
+        console.log("error");
+      })
+      .always(function() {
+        console.log("complete");
+      });
     });
+
+    $("#estado").change(function() {
+      var estado = $("#estado option:selected").text();
+      if (estado == "Estudiante Superior" || estado == "Estudiante Universitario"){
+        $("#datos-estudiante").removeClass('hidden');
+        $("#datos-docente").addClass('hidden');
+      }
+      else{
+        $("#datos-estudiante").addClass('hidden');
+        $("#datos-docente").removeClass('hidden');
+      }
+    });
+    $("#estado").trigger("change");
   });
 </script>
 

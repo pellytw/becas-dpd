@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140528153845) do
+ActiveRecord::Schema.define(:version => 20140603143937) do
 
   create_table "cursos", :force => true do |t|
     t.string   "tel_contacto"
@@ -100,6 +100,10 @@ ActiveRecord::Schema.define(:version => 20140528153845) do
     t.datetime "updated_at",              :null => false
     t.integer  "nro_documento"
     t.boolean  "becado"
+    t.string   "institucion"
+    t.string   "estado"
+    t.integer  "porcentaje_carrera"
+    t.string   "carrera"
   end
 
   create_table "regions", :force => true do |t|
