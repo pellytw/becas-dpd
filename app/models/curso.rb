@@ -12,6 +12,6 @@ class Curso < ActiveRecord::Base
   has_many :persona, :through => :persona_curso
 
   validates :cupo_inscripcion, :presence => true
-  validates :nro_expediente, :presence => true, uniqueness: true
+  validates :nro_expediente, :presence => true
 
 end
