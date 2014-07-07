@@ -8,7 +8,6 @@
   <thead>
   <tr>
     <th>Apellidos y nombres</th>
-    <th>Tipo documento</th>
     <th>Número de Documento</th>
     <th>Situacion revista</th>
     <th>Título</th>
@@ -16,6 +15,7 @@
     <th>Escuela</th>
     <th>Espacio curricular</th>
     <th>Localidad</th>
+    <th>Teléfono</th>
     <th>Becado</th>
     <th></th>
   </tr>
@@ -34,7 +34,6 @@
       <% end %>
     </td>
 
-    <td><%= persona.tipo_documento %></td>
     <td><%= persona.nro_documento %></td>
     <td><%= persona.situacion_revistum %></td>
     <td><%= persona.titulo %></td>
@@ -42,6 +41,7 @@
     <td><%= persona.escuela %></td>
     <td><%= persona.espacio_curricular %></td>
     <td><%= persona.localidad %></td>
+    <td><%= persona.tel_particular %></td>
     <td>
       <% @persona_curso = PersonaCurso.where(:persona_id => persona.id, :curso_id => params["idCurso"]).first %>
       <% if @persona_curso.becado == true then %>
